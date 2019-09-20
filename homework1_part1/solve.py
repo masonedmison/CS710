@@ -2,7 +2,6 @@
 a driver to test search algorithms
 """
 import time
-from functools import wraps
 from homework1_part1.mazes.mazes_to_test import mazeA
 from homework1_part1.uninformed_search import SEARCH_ALGORITHMS
 
@@ -10,7 +9,7 @@ from homework1_part1.uninformed_search import SEARCH_ALGORITHMS
 
 
 if __name__ == '__main__':
-    # create maze object
+    # create maze object here
 
     # iter through each search algo to compare paths and times returned
     print('#################################################################################')

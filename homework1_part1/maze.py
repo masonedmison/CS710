@@ -3,7 +3,8 @@ A Maze and Node Implementation
 search.py within the aima-python repo is heavily referenced <https://github.com/aimacode/aima-python/blob/master/search.py>
 """
 
-from collections import namedtuple
+from collections import namedtuple, Iterable
+from math import pow
 
 state = namedtuple('State',('location','value'))
 
@@ -39,7 +40,7 @@ class MazeProblem(object):
         list, as specified in the constructor. Override this method if
         checking against a single self.goal is not enough."""
         if isinstance(self.goal, list):
-            return is_in(state, self.goal)
+            return state in self.goal
         else:
             return state == self.goal
 
@@ -55,22 +56,87 @@ class MazeProblem(object):
 
 class SequenceMaze(MazeProblem):
 
-    valid_actions = dict()
+    # a set of valid actions for Part 1
+    valid_actions = {'ab', 'a*', 'bc', 'b*', 'ca', 'c*', '*'}
 
-    def __init__(self, initial, goal, maze_dim_tuple):
-        super().__init__(initial, goal)
-        self.maze = self.build_maze()
+    def __init__(self, maze_dim_tuple):
+        # unpack tuple values to dim and char list
+        dim_val, char_list = maze_dim_tuple
+        # validate maze tuple values
+        if not self._is_valid_maze(dim_val, char_list):
+            raise ValueError('invalid maze values passed in')
+        super().__init__( (0, char_list[0]), (pow(dim_val,2) - 1, len(char_list) - 1) )
+        self._dim_val = dim_val
+        # where seq is a list of Nodes
+        self.seq_maze = self._build_maze(char_list)
 
-    def build_maze(self):
-        return self
+    def __str__(self):
+        """
+        string representation of seq maze with implied 'rows'
+        """
+        c=1
+        maze_str = """"""
+        for node in self.seq_maze:
+            maze_str += node.state[1] + '\t'
+            if c % self._dim_val == 0:
+                maze_str += '\n\n'
+            c+=1
+        return maze_str
+
+    @staticmethod
+    def _is_valid_maze(self, dim_val, char_list):
+        """ a quick check to make sure passed in values are valid
+        *does not ensure that there is an actual solution to maze*"""
+        return ( isinstance(dim_val, int) and
+                isinstance(char_list, list ) and
+                pow(dim_val,2)  == len(char_list)
+                 )
+
+    def _build_maze(self, char_list):
+        seq_maze = list()
+        for i, char in enumerate(char_list):
+            s = (i, char)
+            seq_maze.append(Node(s))
+        return seq_maze
 
     def actions(self, state):
         """Return the actions that can be executed in the given
         state. The result would typically be a list, but if there are
         many actions, consider yielding them one at a time in an
         iterator, rather than building them all at once."""
-        raise NotImplementedError
+        # get valid indexes
+        index = state[0]
+        cur_val = state[1]
+        valid_indices = {
+        index - self._dim_val if index - self._dim_val > 0 else None,
+        index + self._dim_val if index + self._dim_val < len(self.seq_maze) else None,
+        index + 1 if index % self._dim_val != self._dim_val - 1 else None,
+        index - 1 if index % self._dim_val != 0 else None,
+        }
+        # check values of valid indices to filter out invalid moves
 
+
+
+    def result(self, state, action):
+        """Return the state that results from executing the given
+        action in the given state. The action must be one of
+        self.actions(state)."""
+        return action
+
+    def goal_test(self, state):
+        """Return True if the state is a goal. The default method compares the
+        state to self.goal or checks for state in self.goal if it is a
+        list, as specified in the constructor. Override this method if
+        checking against a single self.goal is not enough."""
+        return state == self.goal
+
+    def path_cost(self, c, state1, action, state2):
+        """Return the cost of a solution path that arrives at state2 from
+        state1 via action, assuming cost c to get up to state1. If the problem
+        is such that the path doesn't matter, this function will only look at
+        state2.  If the path does matter, it will consider c and maybe state1
+        and action. The default method costs 1 for every step in the path."""
+        return c + 1
 
 class Node:
     """A node in a search tree. Contains a pointer to the parent (the node
@@ -84,7 +150,7 @@ class Node:
 
     def __init__(self, state, parent=None, action=None, path_cost=0):
         """Create a search tree Node, derived from a parent by an action."""
-        self.state = state
+        self.state = state # (loc, val)
         self.parent = parent
         self.action = action
         self.path_cost = path_cost

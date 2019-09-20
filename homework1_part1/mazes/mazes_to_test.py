@@ -1,3 +1,6 @@
+"""
+where mazes are tuples structure like ( <dimension value>, [<list of character values>] )
+"""
 
 mazeA = (6, [
              'a', '*', 'a', 'c', 'b', 'c',
