@@ -3,7 +3,8 @@ a driver to test search algorithms
 """
 import time
 from homework1_part1.mazes.mazes_to_test import mazeA
-from homework1_part1.uninformed_search import SEARCH_ALGORITHMS
+from homework1_part1.uninformed_search import SEARCH_ALGORITHMS, breadth_first_search
+from homework1_part1.maze import SequenceMaze
 
 # graphs to pass as input in tuple format
 
@@ -15,7 +16,8 @@ if __name__ == '__main__':
     print('#################################################################################')
     for algo in SEARCH_ALGORITHMS:
         start = time.time()
-        length_of_sol, num_states, sol_locations = algo(None)
+        seq_maze = SequenceMaze(mazeA)
+        length_of_sol, num_states, sol_locations = algo(seq_maze)
         end = time.time()
         print(algo.__name__, end - start)
         print(f'Length of solution {length_of_sol} \nTotal Numer of States Visisted {num_states} \n'
@@ -23,5 +25,10 @@ if __name__ == '__main__':
         print('#################################################################################')
 
 
+# a place to isolate algos if needed
+    # maze_problem = SequenceMaze(mazeA)
+    # length_of_sol, num_states, sol_locations = breadth_first_search(maze_problem)
+    # print(f'Length of solution {length_of_sol} \nTotal Numer of States Visisted {num_states} \n'
+    #           f'Solutions Locations {sol_locations}  ')
 
 

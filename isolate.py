@@ -1,5 +1,6 @@
 from math import sqrt
 from collections import namedtuple
+from itertools import cycle
 from homework1_part1.maze import SequenceMaze
 from homework1_part1.mazes import mazes_to_test
 
@@ -12,9 +13,7 @@ input = (6, [
              'c', '*', 'b', '*', '*', '*',
              'a', '*', '*', 'c', 'a', 'c'
 ])
-
-state = namedtuple('state',('index_val','char_val'))
-
+letter_seq = ['a', 'b', 'c']
 
 
 
@@ -81,7 +80,17 @@ test_i + dim_val if test_i + dim_val < len(flat_list) else None,
 test_i + 1 if test_i % dim_val != dim_val-1 else None,
 test_i - 1 if test_i % dim_val != 0 else None
 ]
-print(valid)
 # print(one_right, one_left)
+
+d = {'index':0, 'char_val':'a'}
+g = {'index':0, 'char_val':'a'}
+
+s = set()
+
+t = tuple([*d.values(),None])
+t2 = tuple([*d.values(),None])
+print(t == t2)
+
+
 
 
