@@ -1,7 +1,7 @@
 from math import sqrt
 from collections import namedtuple
 from itertools import cycle
-from homework1_part1.maze import SequenceMaze
+from homework1_part1.maze import SequenceMaze, Node
 from homework1_part1.mazes import mazes_to_test
 
 
@@ -13,84 +13,22 @@ input = (6, [
              'c', '*', 'b', '*', '*', '*',
              'a', '*', '*', 'c', 'a', 'c'
 ])
-letter_seq = ['a', 'b', 'c']
 
-
-
-#
-# def read_dimension_val_and_char(dim_val, char_list):
-#     seq_maze = list()
-#     row = list()
-#     c = 1
-#     for char in char_list:
-#         row.append(char)
-#         if c % dim_val == 0:
-#             seq_maze.append(row)
-#             row = list()
-#         c+=1
-#     return seq_maze
-#
-# def display_seq_maze(seq_maze):
-#     for row in seq_maze:
-#         for val in row:
-#             print(val, end='\t')
-#         print('\n')
-#
-# seq_maze = read_dimension_val_and_char(input[0], input[1])
-
-
-# mazeA = mazes_to_test.mazeA
-#
-#
-# seq_maze = SequenceMaze(mazeA)
-# print(seq_maze)
-
-
-# boundary check
-
-#inner
-indexI = 1
-#outer
-indexO = 17
-#dim_val
-dim_val = 6
-
-
-# if int(index / dim_val - 1)
-# boundary check!
-# if index % dim_val == 0 or index % dim_val == dim_val-1 :
-#     return None
-
-dim_val = 3
-flat_list =[0,1,2,
-            3,4,5,
-            6,7,8,]
-
-# implied coord  is 1,1 or row = 1 col = 1
-test_i = 4
-# flat list movements...
-row = int(test_i / dim_val)
-col = test_i % dim_val
-
-# VALID INDEXES
-# up and down
-valid = [
-test_i - dim_val if test_i - dim_val > 0 else None,
-test_i + dim_val if test_i + dim_val < len(flat_list) else None,
-test_i + 1 if test_i % dim_val != dim_val-1 else None,
-test_i - 1 if test_i % dim_val != 0 else None
-]
 # print(one_right, one_left)
 
-d = {'index':0, 'char_val':'a'}
-g = {'index':0, 'char_val':'a'}
+from homework1_part1.priority_queue import PriorityQueue
 
-s = set()
+# {index: <array_index>, char_val:<char_val>}
+n1 = Node(dict(index=0, char_val='second'), path_cost=1)
+n2 = Node(dict(index=1, char_val='a'), path_cost=0)
 
-t = tuple([*d.values(),None])
-t2 = tuple([*d.values(),None])
-print(t == t2)
+p_queue = PriorityQueue()
 
+p_queue.push(n1, n1.path_cost)
+p_queue.push(n2, n2.path_cost)
 
+print(p_queue.pop()) # should be n1
+
+print(p_queue.pop())
 
 

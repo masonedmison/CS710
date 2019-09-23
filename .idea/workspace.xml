@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="29f629be-7f74-4704-bc6c-26b2ea81c5e9" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/homework1_part1/priority_queue.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/homework1_part1/maze.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework1_part1/maze.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework1_part1/mazes/mazes_to_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework1_part1/mazes/mazes_to_test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/homework1_part1/solve.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework1_part1/solve.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/homework1_part1/uninformed_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework1_part1/uninformed_search.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/isolate.py" beforeDir="false" afterPath="$PROJECT_DIR$/isolate.py" afterDir="false" />
@@ -16,11 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="isolate.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="isolate.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/isolate.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="91" column="13" selection-start-line="91" selection-start-column="13" selection-end-line="91" selection-end-column="13" />
+            <state relative-caret-position="330">
+              <caret line="22" column="50" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -31,8 +34,17 @@
       <file leaf-file-name="uninformed_search.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/homework1_part1/uninformed_search.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="34" column="19" lean-forward="true" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
+            <state relative-caret-position="-295">
+              <caret line="10" selection-start-line="10" selection-end-line="10" selection-end-column="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="priority_queue.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/homework1_part1/priority_queue.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
             </state>
           </provider>
         </entry>
@@ -40,8 +52,8 @@
       <file leaf-file-name="maze.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/homework1_part1/maze.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1589">
-              <caret line="74" column="55" lean-forward="true" selection-start-line="74" selection-start-column="55" selection-end-line="74" selection-end-column="55" />
+            <state relative-caret-position="197">
+              <caret line="192" column="24" selection-start-line="192" selection-start-column="24" selection-end-line="192" selection-end-column="24" />
               <folding>
                 <element signature="e#164#208#0" expanded="true" />
               </folding>
@@ -49,11 +61,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="solve.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="solve.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/homework1_part1/solve.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="30" column="65" selection-start-line="30" selection-start-column="65" selection-end-line="30" selection-end-column="65" />
+            <state relative-caret-position="198">
+              <caret line="19" column="35" lean-forward="true" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
               <folding>
                 <element signature="e#43#54#0" expanded="true" />
               </folding>
@@ -64,8 +76,8 @@
       <file leaf-file-name="mazes_to_test.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/homework1_part1/mazes/mazes_to_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="15" lean-forward="true" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
+            <state relative-caret-position="375">
+              <caret line="25" column="5" lean-forward="true" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -85,6 +97,11 @@
       <find>'index': 31, 'char_val': '*'} with star counting as (if any)a</find>
       <find>index': 27, 'char_val': '*'} with star counting as (if any)c</find>
       <find>'index': 31,</find>
+      <find>index': 10</find>
+      <find>'index': 9, 'char_val': '*'</find>
+      <find>index': 32, 'char_val': '*'} with star counting as (if any)b</find>
+      <find>'index': 8, 'char_val': '*'} with star counting as (if any)b</find>
+      <find>print</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -99,10 +116,11 @@
         <option value="$PROJECT_DIR$/homework1_part1/mazes/maze_input.py" />
         <option value="$PROJECT_DIR$/homework1_part1/__init__.py" />
         <option value="$PROJECT_DIR$/homework1_part1/mazes/mazes_to_test.py" />
-        <option value="$PROJECT_DIR$/isolate.py" />
-        <option value="$PROJECT_DIR$/homework1_part1/uninformed_search.py" />
-        <option value="$PROJECT_DIR$/homework1_part1/maze.py" />
         <option value="$PROJECT_DIR$/homework1_part1/solve.py" />
+        <option value="$PROJECT_DIR$/homework1_part1/uninformed_search.py" />
+        <option value="$PROJECT_DIR$/homework1_part1/priority_queue.py" />
+        <option value="$PROJECT_DIR$/homework1_part1/maze.py" />
+        <option value="$PROJECT_DIR$/isolate.py" />
       </list>
     </option>
   </component>
@@ -163,7 +181,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.solve">
+  <component name="RunManager" selected="Python.isolate">
     <configuration name="isolate" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="CS710" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -206,10 +224,13 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.solve" />
         <item itemvalue="Python.isolate" />
+        <item itemvalue="Python.solve" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="StructureViewFactory">
+    <option name="ACTIVE_ACTIONS" value=",SHOW_FIELDS" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -274,7 +295,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/homework1_part1/solve.py</url>
-          <line>29</line>
+          <line>30</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
@@ -294,44 +315,51 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/homework1_part1/mazes/mazes_to_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="15" lean-forward="true" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
+        <state relative-caret-position="375">
+          <caret line="25" column="5" lean-forward="true" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/isolate.py">
+    <entry file="file://$PROJECT_DIR$/homework1_part1/solve.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="91" column="13" selection-start-line="91" selection-start-column="13" selection-end-line="91" selection-end-column="13" />
+        <state relative-caret-position="198">
+          <caret line="19" column="35" lean-forward="true" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
           <folding>
-            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#43#54#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework1_part1/priority_queue.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework1_part1/uninformed_search.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-295">
+          <caret line="10" selection-start-line="10" selection-end-line="10" selection-end-column="56" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/homework1_part1/maze.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1589">
-          <caret line="74" column="55" lean-forward="true" selection-start-line="74" selection-start-column="55" selection-end-line="74" selection-end-column="55" />
+        <state relative-caret-position="197">
+          <caret line="192" column="24" selection-start-line="192" selection-start-column="24" selection-end-line="192" selection-end-column="24" />
           <folding>
             <element signature="e#164#208#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/homework1_part1/uninformed_search.py">
+    <entry file="file://$PROJECT_DIR$/isolate.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="34" column="19" lean-forward="true" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/homework1_part1/solve.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="65" selection-start-line="30" selection-start-column="65" selection-end-line="30" selection-end-column="65" />
+        <state relative-caret-position="330">
+          <caret line="22" column="50" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
           <folding>
-            <element signature="e#43#54#0" expanded="true" />
+            <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -21,7 +21,7 @@ class MazeProblem(object):
         self.initial = initial
         self.goal = goal
 
-    def actions(self, state):
+    def actions(self, state, parent_i):
         """Return the actions that can be executed in the given
         state. The result would typically be a list, but if there are
         many actions, consider yielding them one at a time in an
@@ -57,7 +57,7 @@ class MazeProblem(object):
 class SequenceMaze(MazeProblem):
 
     # a set of valid actions for Part 1
-    valid_actions = {'ab', 'a*', 'bc', 'b*', 'ca', 'c*', 'a*b','b*c', 'c*a', 'a**', 'b**','c**'}
+    valid_actions = {'ab', 'a*', 'bc', 'b*', 'ca', 'c*', 'a*b','b*c', 'c*a'}
 
     def __init__(self, maze_dim_tuple):
         # unpack tuple values to dim and char list
@@ -92,7 +92,7 @@ class SequenceMaze(MazeProblem):
                 pow(dim_val,2)  == len(char_list)
                  )
 
-    def actions(self, state):
+    def actions(self, state, parent_i):
         """Return the actions that can be executed in the given
         state. The result would typically be a list, but if there are
         many actions, consider yielding them one at a time in an
@@ -102,15 +102,19 @@ class SequenceMaze(MazeProblem):
         cur_val = state['char_val']
         valid_indices = self._get_valid_indices(state, ['up','down','right', 'left'])
 
-        valid_actions = set()
+        valid_actions = list()
+        non_back_track = list()
         # for every valid index check
         for k in valid_indices.keys():
             if valid_indices[k] is not None:
                 index = valid_indices[k]
+
                 # concat current state value and index value
                 move_sequence = cur_val + self.maze_char_list[index].strip()
                 if move_sequence in self.valid_actions:
-                    valid_actions.add(k)
+                    if parent_i == index:
+                        continue
+                    valid_actions.append(k)
         return valid_actions
 
     def _get_valid_indices(self,state, actions):
@@ -126,10 +130,11 @@ class SequenceMaze(MazeProblem):
             res_i = cur_state_i - self._dim_val if cur_state_i - self._dim_val > 0 else None
         elif action == 'down':
             res_i = cur_state_i + self._dim_val if cur_state_i + self._dim_val < len(self.maze_char_list) else None
-        elif action == 'right':
-            res_i = cur_state_i + 1 if cur_state_i % self._dim_val != self._dim_val - 1 else None
         elif action == 'left':
             res_i = cur_state_i - 1 if cur_state_i % self._dim_val != 0 else None
+        elif action == 'right':
+            res_i = cur_state_i + 1 if cur_state_i % self._dim_val != self._dim_val - 1 else None
+
         else:
             raise ValueError('incorrect action passed to Maze Sequence.result() must be up, down, right, or left')
 
@@ -147,7 +152,6 @@ class SequenceMaze(MazeProblem):
         state to self.goal or checks for state in self.goal if it is a
         list, as specified in the constructor. Override this method if
         checking against a single self.goal is not enough."""
-        print(f'passed in state {state} goal state {self.goal}')
         return state == self.goal
 
     def path_cost(self, c, state1, action, state2):
@@ -168,7 +172,7 @@ class Node:
     an explanation of how the f and h values are handled. You will not need to
     subclass this class."""
     # to asssign star val to how is is being 'counted' or 'played'
-    star_char_sub = {'a':'b', 'b':'c', 'c':'a', 'a*':'b', 'b*':'c','c*':'a'}
+    star_char_sub = {'a':'b', 'b':'c', 'c':'a'}
     def __init__(self, state, parent=None, action=None, path_cost=0):
         """Create a search tree Node, derived from a parent by an action."""
         self.state = state # {index: <array_index>, char_val:<char_val>}
@@ -186,7 +190,7 @@ class Node:
             self.depth = parent.depth + 1
 
     def __repr__(self):
-        return "<Node {} with star counting as (if any){}>".format(self.state, self.count_star_as)
+        return "<Node {}>".format(self.state)
 
     def __lt__(self, node):
         return self.state < node.state
@@ -198,22 +202,17 @@ class Node:
 
     def expand(self, problem):
         """List the nodes reachable in one step from this node."""
-        # if state char val is a *, get parents val if any and concat to *
-        # eg state_char = *, parents_char_val = a --> a*
-        # conditions to consider:
-        #    parents val = a or b or c
-        #    parents char val is a *
-        #    parent = None
-        #        this will never happen as initial is not *
         tmp_state = self.state
+        parent_i = self.parent.state['index'] if self.parent else -1
         if self.state['char_val'] == '*' and self.parent is not None:
             # value is a,b, c, a*, b*, c*
             # set state['char_val'] to new value use star char sub mapping
-            val_concat = self.count_star_as + '*'
-            # state used to check for valid moves
+            val_concat = self.count_star_as
+            # state used to check for valid moves - node state is not altered
             tmp_state = {'index':self.state['index'], 'char_val':val_concat}
+
         return [self.child_node(problem, action)
-                for action in problem.actions(tmp_state)]
+                for action in problem.actions(tmp_state, parent_i)]
 
     def child_node(self, problem, action):
         """[Figure 3.10]"""
@@ -243,8 +242,8 @@ class Node:
 
     def __eq__(self, other):
         return ( isinstance(other, Node) and self.state == other.state
-
+                 and self.count_star_as == other.count_star_as
                 )
 
     def __hash__(self):
-        return hash(self.state)
+        return hash(tuple([*self.state.values(), self.count_star_as]))
