@@ -103,12 +103,10 @@ class SequenceMaze(MazeProblem):
         valid_indices = self._get_valid_indices(state, ['up','down','right', 'left'])
 
         valid_actions = list()
-        non_back_track = list()
         # for every valid index check
         for k in valid_indices.keys():
             if valid_indices[k] is not None:
                 index = valid_indices[k]
-
                 # concat current state value and index value
                 move_sequence = cur_val + self.maze_char_list[index].strip()
                 if move_sequence in self.valid_actions:
@@ -160,7 +158,11 @@ class SequenceMaze(MazeProblem):
         is such that the path doesn't matter, this function will only look at
         state2.  If the path does matter, it will consider c and maybe state1
         and action. The default method costs 1 for every step in the path."""
-        return c + 1
+        # if state char values are a,b,c the +1
+        if state2['char_val'] == 'a' or 'b' or 'c':
+            return c + 1
+        else:
+            c+2
 
 class Node:
     """A node in a search tree. Contains a pointer to the parent (the node
@@ -193,12 +195,7 @@ class Node:
         return "<Node {}>".format(self.state)
 
     def __lt__(self, node):
-        return self.state < node.state
-
-    def _get_star_parent(self):
-        """get predecessor of star
-        where parents may be a sequence of stars"""
-        pass
+        return self.path_cost < node.path_cost
 
     def expand(self, problem):
         """List the nodes reachable in one step from this node."""

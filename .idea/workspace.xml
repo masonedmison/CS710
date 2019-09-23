@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="29f629be-7f74-4704-bc6c-26b2ea81c5e9" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/homework1_part1/priority_queue.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/homework1_part1/maze.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework1_part1/maze.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework1_part1/mazes/mazes_to_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework1_part1/mazes/mazes_to_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework1_part1/priority_queue.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework1_part1/priority_queue.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/homework1_part1/solve.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework1_part1/solve.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/homework1_part1/uninformed_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework1_part1/uninformed_search.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/isolate.py" beforeDir="false" afterPath="$PROJECT_DIR$/isolate.py" afterDir="false" />
@@ -19,11 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="isolate.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="isolate.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/isolate.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="50" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
+            <state relative-caret-position="300">
+              <caret line="20" column="11" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -31,11 +31,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="uninformed_search.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="uninformed_search.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/homework1_part1/uninformed_search.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-295">
-              <caret line="10" selection-start-line="10" selection-end-line="10" selection-end-column="56" />
+            <state relative-caret-position="135">
+              <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+              <folding>
+                <element signature="e#251#280#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="utils.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utils.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="19" column="22" lean-forward="true" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -43,8 +55,8 @@
       <file leaf-file-name="priority_queue.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/homework1_part1/priority_queue.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+            <state relative-caret-position="304">
+              <caret line="22" column="50" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -52,8 +64,8 @@
       <file leaf-file-name="maze.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/homework1_part1/maze.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="192" column="24" selection-start-line="192" selection-start-column="24" selection-end-line="192" selection-end-column="24" />
+            <state relative-caret-position="1044">
+              <caret line="160" column="47" selection-start-line="160" selection-start-column="47" selection-end-line="160" selection-end-column="47" />
               <folding>
                 <element signature="e#164#208#0" expanded="true" />
               </folding>
@@ -64,8 +76,8 @@
       <file leaf-file-name="solve.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/homework1_part1/solve.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="19" column="35" lean-forward="true" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
+            <state relative-caret-position="375">
+              <caret line="25" column="54" lean-forward="true" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="54" />
               <folding>
                 <element signature="e#43#54#0" expanded="true" />
               </folding>
@@ -117,10 +129,11 @@
         <option value="$PROJECT_DIR$/homework1_part1/__init__.py" />
         <option value="$PROJECT_DIR$/homework1_part1/mazes/mazes_to_test.py" />
         <option value="$PROJECT_DIR$/homework1_part1/solve.py" />
-        <option value="$PROJECT_DIR$/homework1_part1/uninformed_search.py" />
+        <option value="$PROJECT_DIR$/utils.py" />
         <option value="$PROJECT_DIR$/homework1_part1/priority_queue.py" />
-        <option value="$PROJECT_DIR$/homework1_part1/maze.py" />
         <option value="$PROJECT_DIR$/isolate.py" />
+        <option value="$PROJECT_DIR$/homework1_part1/maze.py" />
+        <option value="$PROJECT_DIR$/homework1_part1/uninformed_search.py" />
       </list>
     </option>
   </component>
@@ -181,7 +194,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.isolate">
+  <component name="RunManager" selected="Python.solve">
     <configuration name="isolate" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="CS710" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -224,8 +237,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.isolate" />
         <item itemvalue="Python.solve" />
+        <item itemvalue="Python.isolate" />
       </list>
     </recent_temporary>
   </component>
@@ -249,14 +262,14 @@
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="1" side_tool="true" visible="true" weight="0.123809524" />
+      <window_info content_ui="combo" id="Project" order="1" side_tool="true" weight="0.123809524" />
       <window_info anchor="bottom" id="TODO" order="10" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Find" order="5" weight="0.32923076" />
       <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.41025642" />
       <window_info anchor="bottom" id="Version Control" order="3" />
       <window_info anchor="bottom" id="Python Console" order="0" />
-      <window_info id="Structure" order="2" side_tool="true" weight="0.16369048" />
+      <window_info id="Structure" order="2" side_tool="true" visible="true" weight="0.16369048" />
       <window_info anchor="bottom" id="Terminal" order="1" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info id="Favorites" order="0" side_tool="true" />
@@ -322,44 +335,54 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/homework1_part1/solve.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="19" column="35" lean-forward="true" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
+        <state relative-caret-position="375">
+          <caret line="25" column="54" lean-forward="true" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="54" />
           <folding>
             <element signature="e#43#54#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/homework1_part1/priority_queue.py">
+    <entry file="file://$PROJECT_DIR$/utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+          <caret line="19" column="22" lean-forward="true" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/homework1_part1/uninformed_search.py">
+    <entry file="file://$PROJECT_DIR$/homework1_part1/priority_queue.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-295">
-          <caret line="10" selection-start-line="10" selection-end-line="10" selection-end-column="56" />
+        <state relative-caret-position="304">
+          <caret line="22" column="50" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/isolate.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="11" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/homework1_part1/maze.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="192" column="24" selection-start-line="192" selection-start-column="24" selection-end-line="192" selection-end-column="24" />
+        <state relative-caret-position="1044">
+          <caret line="160" column="47" selection-start-line="160" selection-start-column="47" selection-end-line="160" selection-end-column="47" />
           <folding>
             <element signature="e#164#208#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/isolate.py">
+    <entry file="file://$PROJECT_DIR$/homework1_part1/uninformed_search.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="50" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
+        <state relative-caret-position="135">
+          <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
           <folding>
-            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#251#280#0" expanded="true" />
           </folding>
         </state>
       </provider>

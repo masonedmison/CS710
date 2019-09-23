@@ -21,7 +21,7 @@ if __name__ == '__main__':
         length_of_sol, num_states, sol_locations = algo(seq_maze)
         end = time.time()
         print('timed @', end - start)
-        print(f'Length of solution {length_of_sol} \nTotal Numer of States Visisted {num_states} \n'
+        print(f'Length of solution {length_of_sol} \nTotal Numer of States Visited {num_states} \n'
               f'Solutions Locations {sol_locations}  ')
         print('#################################################################################')
 
