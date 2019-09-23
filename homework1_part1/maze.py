@@ -57,7 +57,7 @@ class MazeProblem(object):
 class SequenceMaze(MazeProblem):
 
     # a set of valid actions for Part 1
-    valid_actions = {'ab', 'a*', 'bc', 'b*', 'ca', 'c*', '*'}
+    valid_actions = {'ab', 'a*', 'bc', 'b*', 'ca', 'c*', 'c*b','a*c', 'b*a'}
 
     def __init__(self, maze_dim_tuple):
         # unpack tuple values to dim and char list
@@ -65,26 +65,26 @@ class SequenceMaze(MazeProblem):
         # validate maze tuple values
         if not self._is_valid_maze(dim_val, char_list):
             raise ValueError('invalid maze values passed in')
-        super().__init__( (0, char_list[0]), (pow(dim_val,2) - 1, len(char_list) - 1) )
+        super().__init__( {'index':0, 'char_val':char_list[0]}, {'index':pow(dim_val,2) - 1, 'char_val': len(char_list) - 1} )
         self._dim_val = dim_val
         # where seq is a list of Nodes
-        self.seq_maze = self._build_maze(char_list)
+        self.maze_char_list = maze_dim_tuple[1]
 
     def __str__(self):
         """
         string representation of seq maze with implied 'rows'
         """
-        c=1
+        count = 1
         maze_str = """"""
-        for node in self.seq_maze:
-            maze_str += node.state[1] + '\t'
-            if c % self._dim_val == 0:
+        for char in self.maze_char_list:
+            maze_str += char + '\t'
+            if count % self._dim_val == 0:
                 maze_str += '\n\n'
-            c+=1
+            count += 1
         return maze_str
 
     @staticmethod
-    def _is_valid_maze(self, dim_val, char_list):
+    def _is_valid_maze(dim_val, char_list):
         """ a quick check to make sure passed in values are valid
         *does not ensure that there is an actual solution to maze*"""
         return ( isinstance(dim_val, int) and
@@ -92,36 +92,54 @@ class SequenceMaze(MazeProblem):
                 pow(dim_val,2)  == len(char_list)
                  )
 
-    def _build_maze(self, char_list):
-        seq_maze = list()
-        for i, char in enumerate(char_list):
-            s = (i, char)
-            seq_maze.append(Node(s))
-        return seq_maze
-
     def actions(self, state):
         """Return the actions that can be executed in the given
         state. The result would typically be a list, but if there are
         many actions, consider yielding them one at a time in an
         iterator, rather than building them all at once."""
-        # get valid indexes
-        index = state[0]
-        cur_val = state[1]
-        valid_indices = {
-        index - self._dim_val if index - self._dim_val > 0 else None,
-        index + self._dim_val if index + self._dim_val < len(self.seq_maze) else None,
-        index + 1 if index % self._dim_val != self._dim_val - 1 else None,
-        index - 1 if index % self._dim_val != 0 else None,
-        }
-        # check values of valid indices to filter out invalid moves
+        # get valid indexes -- where state is tuple(<index>, val)
+        index = state['index']
+        cur_val = state['char_val']
+        valid_indices = self._get_valid_indices(state, ['up','down','right', 'left'])
 
+        valid_actions = set()
+        # for every valid index check
+        for k in valid_indices.keys():
+            if valid_indices[k] is not None:
+                index = valid_indices[k]
+                # concat current state value and index value
+                move_sequence = state[1] + self.maze_char_list[index].state[1].strip()
+                if move_sequence in self.valid_actions:
+                    valid_actions.add(k)
+        return valid_actions
 
+    def _get_valid_indices(self,state, actions):
+        return {action: self._get_valid_index(state, action) for action in actions}
+
+    def _get_valid_index(self, state, action):
+        """
+        helper method to retrieve valid index
+        return valid index or None
+        """
+        cur_state_i = state['index']
+        cur_state_val = state['cur_val']
+        if action == 'up':
+            res_i = cur_state_i - self._dim_val if cur_state_i - self._dim_val > 0 else None
+        elif action == 'down':
+            res_i = cur_state_i + self._dim_val if cur_state_i + self._dim_val < len(self.maze_char_list) else None
+        elif action == 'right':
+            res_i = cur_state_i + 1 if cur_state_i % self._dim_val != self._dim_val - 1 else None
+        elif action == 'left':
+            res_i = cur_state_i - 1 if cur_state_i % self._dim_val != 0 else None
+        else:
+            raise ValueError('incorrect action passed to Maze Sequence.result() must be up, down, right, or left')
 
     def result(self, state, action):
         """Return the state that results from executing the given
         action in the given state. The action must be one of
         self.actions(state)."""
-        return action
+        res_i = self._get_valid_index(state, action)
+        return {'index':res_i, 'char_val': self.maze_char_list['res_i']}
 
     def goal_test(self, state):
         """Return True if the state is a goal. The default method compares the
@@ -147,10 +165,10 @@ class Node:
     may add an f and h value; see best_first_graph_search and astar_search for
     an explanation of how the f and h values are handled. You will not need to
     subclass this class."""
-
+    star_char_sub = {'a':'b', 'b':'c', 'c':'a'} # to asssign star val to how is is being 'counted' or 'played'
     def __init__(self, state, parent=None, action=None, path_cost=0):
         """Create a search tree Node, derived from a parent by an action."""
-        self.state = state # (loc, val)
+        self.state = state # {index: <array_index>, char_val:<char_val>}
         self.parent = parent
         self.action = action
         self.path_cost = path_cost
@@ -166,6 +184,18 @@ class Node:
 
     def expand(self, problem):
         """List the nodes reachable in one step from this node."""
+        # if state char val is a *, get parents val if any and concat to *
+        # eg state_char = *, parents_char_val = a --> a*
+        # conditions to consider:
+        #    parents val = a or b or c
+        #    parents char val is a *
+        #    parent = None
+
+        if self.state['char_val'] == '*' and self.parent is not None:
+            # value is a,b  or, c
+            # set state['char_val'] to new value use star char sub mapping
+            val_concat = self.star_char_sub[self.parent.state['char_val']]
+            self.state['char_val'] = val_concat
         return [self.child_node(problem, action)
                 for action in problem.actions(self.state)]
 
@@ -195,7 +225,9 @@ class Node:
     # want in other contexts.]
 
     def __eq__(self, other):
-        return isinstance(other, Node) and self.state == other.state
+        return ( isinstance(other, Node) and self.state == other.state
+                and self.parent == other.parent and self.action == other.action
+                )
 
     def __hash__(self):
         return hash(self.state)

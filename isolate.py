@@ -1,4 +1,5 @@
 from math import sqrt
+from collections import namedtuple
 from homework1_part1.maze import SequenceMaze
 from homework1_part1.mazes import mazes_to_test
 
@@ -11,6 +12,12 @@ input = (6, [
              'c', '*', 'b', '*', '*', '*',
              'a', '*', '*', 'c', 'a', 'c'
 ])
+
+state = namedtuple('state',('index_val','char_val'))
+
+
+
+
 #
 # def read_dimension_val_and_char(dim_val, char_list):
 #     seq_maze = list()
@@ -61,21 +68,20 @@ flat_list =[0,1,2,
             6,7,8,]
 
 # implied coord  is 1,1 or row = 1 col = 1
-test_i = 3
+test_i = 4
 # flat list movements...
 row = int(test_i / dim_val)
 col = test_i % dim_val
 
 # VALID INDEXES
 # up and down
-one_up = test_i - dim_val if test_i - dim_val > 0 else None
-one_down = test_i + dim_val if test_i + dim_val < len(flat_list) else None
-# print(one_up, one_down)
-
-# one right and left
-one_right = test_i + 1 if test_i % dim_val != dim_val-1 else None
-one_left = test_i - 1 if test_i % dim_val != 0 else None
-
-print(one_right, one_left)
+valid = [
+test_i - dim_val if test_i - dim_val > 0 else None,
+test_i + dim_val if test_i + dim_val < len(flat_list) else None,
+test_i + 1 if test_i % dim_val != dim_val-1 else None,
+test_i - 1 if test_i % dim_val != 0 else None
+]
+print(valid)
+# print(one_right, one_left)
 
 
