@@ -1,0 +1,106 @@
+
+#########################################################################################
+[PROCESSING ALGORITHM] breadth_first_search
+#################################################################################
+	[SOLVING mazeA]
+		timed @ 0.002080202102661133
+		Length of solution 44 
+		Total Numer of States Visited 70 
+		Solutions Locations [{'index': 1, 'char_val': '*'}, {'index': 7, 'char_val': '*'}, {'index': 8, 'char_val': '*'}, {'index': 9, 'char_val': '*'}, {'index': 3, 'char_val': 'c'}, {'index': 2, 'char_val': 'a'}, {'index': 8, 'char_val': '*'}, {'index': 9, 'char_val': '*'}, {'index': 10, 'char_val': '*'}, {'index': 4, 'char_val': 'b'}, {'index': 3, 'char_val': 'c'}, {'index': 9, 'char_val': '*'}, {'index': 15, 'char_val': 'b'}, {'index': 16, 'char_val': 'c'}, {'index': 10, 'char_val': '*'}, {'index': 9, 'char_val': '*'}, {'index': 8, 'char_val': '*'}, {'index': 7, 'char_val': '*'}, {'index': 13, 'char_val': 'b'}, {'index': 12, 'char_val': '*'}, {'index': 18, 'char_val': '*'}, {'index': 19, 'char_val': 'b'}, {'index': 25, 'char_val': '*'}, {'index': 31, 'char_val': '*'}, {'index': 32, 'char_val': '*'}, {'index': 33, 'char_val': 'c'}, {'index': 34, 'char_val': 'a'}, {'index': 28, 'char_val': '*'}, {'index': 27, 'char_val': '*'}, {'index': 21, 'char_val': 'a'}, {'index': 15, 'char_val': 'b'}, {'index': 9, 'char_val': '*'}, {'index': 8, 'char_val': '*'}, {'index': 7, 'char_val': '*'}, {'index': 6, 'char_val': 'c'}, {'index': 12, 'char_val': '*'}, {'index': 18, 'char_val': '*'}, {'index': 24, 'char_val': 'c'}, {'index': 25, 'char_val': '*'}, {'index': 26, 'char_val': 'b'}, {'index': 27, 'char_val': '*'}, {'index': 28, 'char_val': '*'}, {'index': 29, 'char_val': '*'}, {'index': 35, 'char_val': 'c'}] 
+#########################################################################################
+	[SOLVING mazeB]
+		timed @ 0.0002429485321044922
+		Length of solution 8 
+		Total Numer of States Visited 8 
+		Solutions Locations [{'index': 1, 'char_val': 'b'}, {'index': 2, 'char_val': 'c'}, {'index': 6, 'char_val': '*'}, {'index': 5, 'char_val': 'b'}, {'index': 9, 'char_val': 'c'}, {'index': 10, 'char_val': '*'}, {'index': 11, 'char_val': '*'}, {'index': 15, 'char_val': 'c'}] 
+#########################################################################################
+	[SOLVING mazeC]
+		timed @ 0.0002880096435546875
+		Length of solution 8 
+		Total Numer of States Visited 10 
+		Solutions Locations [{'index': 1, 'char_val': '*'}, {'index': 2, 'char_val': '*'}, {'index': 3, 'char_val': '*'}, {'index': 7, 'char_val': '*'}, {'index': 6, 'char_val': '*'}, {'index': 10, 'char_val': '*'}, {'index': 11, 'char_val': '*'}, {'index': 15, 'char_val': 'c'}] 
+#########################################################################################
+	[SOLVING mazeD]
+		timed @ 0.0003178119659423828
+		Length of solution 8 
+		Total Numer of States Visited 14 
+		Solutions Locations [{'index': 1, 'char_val': 'b'}, {'index': 2, 'char_val': '*'}, {'index': 6, 'char_val': 'a'}, {'index': 10, 'char_val': 'b'}, {'index': 9, 'char_val': 'c'}, {'index': 13, 'char_val': 'a'}, {'index': 14, 'char_val': 'b'}, {'index': 15, 'char_val': 'c'}] 
+#########################################################################################
+[PROCESSING ALGORITHM] depth_first_search_with_backtrack
+#################################################################################
+	[SOLVING mazeA]
+		timed @ 0.0018949508666992188
+		Length of solution 44 
+		Total Numer of States Visited 70 
+		Solutions Locations [{'index': 1, 'char_val': '*'}, {'index': 7, 'char_val': '*'}, {'index': 8, 'char_val': '*'}, {'index': 9, 'char_val': '*'}, {'index': 3, 'char_val': 'c'}, {'index': 2, 'char_val': 'a'}, {'index': 8, 'char_val': '*'}, {'index': 9, 'char_val': '*'}, {'index': 10, 'char_val': '*'}, {'index': 4, 'char_val': 'b'}, {'index': 3, 'char_val': 'c'}, {'index': 9, 'char_val': '*'}, {'index': 15, 'char_val': 'b'}, {'index': 16, 'char_val': 'c'}, {'index': 10, 'char_val': '*'}, {'index': 9, 'char_val': '*'}, {'index': 8, 'char_val': '*'}, {'index': 7, 'char_val': '*'}, {'index': 13, 'char_val': 'b'}, {'index': 12, 'char_val': '*'}, {'index': 18, 'char_val': '*'}, {'index': 19, 'char_val': 'b'}, {'index': 25, 'char_val': '*'}, {'index': 31, 'char_val': '*'}, {'index': 32, 'char_val': '*'}, {'index': 33, 'char_val': 'c'}, {'index': 34, 'char_val': 'a'}, {'index': 28, 'char_val': '*'}, {'index': 27, 'char_val': '*'}, {'index': 21, 'char_val': 'a'}, {'index': 15, 'char_val': 'b'}, {'index': 9, 'char_val': '*'}, {'index': 8, 'char_val': '*'}, {'index': 7, 'char_val': '*'}, {'index': 6, 'char_val': 'c'}, {'index': 12, 'char_val': '*'}, {'index': 18, 'char_val': '*'}, {'index': 24, 'char_val': 'c'}, {'index': 25, 'char_val': '*'}, {'index': 26, 'char_val': 'b'}, {'index': 27, 'char_val': '*'}, {'index': 28, 'char_val': '*'}, {'index': 29, 'char_val': '*'}, {'index': 35, 'char_val': 'c'}] 
+#########################################################################################
+	[SOLVING mazeB]
+		timed @ 0.0002028942108154297
+		Length of solution 8 
+		Total Numer of States Visited 8 
+		Solutions Locations [{'index': 1, 'char_val': 'b'}, {'index': 2, 'char_val': 'c'}, {'index': 6, 'char_val': '*'}, {'index': 5, 'char_val': 'b'}, {'index': 9, 'char_val': 'c'}, {'index': 10, 'char_val': '*'}, {'index': 11, 'char_val': '*'}, {'index': 15, 'char_val': 'c'}] 
+#########################################################################################
+	[SOLVING mazeC]
+		timed @ 0.000270843505859375
+		Length of solution 8 
+		Total Numer of States Visited 10 
+		Solutions Locations [{'index': 1, 'char_val': '*'}, {'index': 2, 'char_val': '*'}, {'index': 3, 'char_val': '*'}, {'index': 7, 'char_val': '*'}, {'index': 6, 'char_val': '*'}, {'index': 10, 'char_val': '*'}, {'index': 11, 'char_val': '*'}, {'index': 15, 'char_val': 'c'}] 
+#########################################################################################
+	[SOLVING mazeD]
+		timed @ 0.0003299713134765625
+		Length of solution 8 
+		Total Numer of States Visited 14 
+		Solutions Locations [{'index': 1, 'char_val': 'b'}, {'index': 2, 'char_val': '*'}, {'index': 6, 'char_val': 'a'}, {'index': 10, 'char_val': 'b'}, {'index': 9, 'char_val': 'c'}, {'index': 13, 'char_val': 'a'}, {'index': 14, 'char_val': 'b'}, {'index': 15, 'char_val': 'c'}] 
+#########################################################################################
+[PROCESSING ALGORITHM] uniform_cost_search
+#################################################################################
+	[SOLVING mazeA]
+		timed @ 0.004127025604248047
+		Length of solution None 
+		Total Numer of States Visited 63 
+		Solutions Locations None 
+#########################################################################################
+	[SOLVING mazeB]
+		timed @ 0.0008029937744140625
+		Length of solution None 
+		Total Numer of States Visited 15 
+		Solutions Locations None 
+#########################################################################################
+	[SOLVING mazeC]
+		timed @ 0.002356290817260742
+		Length of solution 14 
+		Total Numer of States Visited 31 
+		Solutions Locations [{'index': 1, 'char_val': '*'}, {'index': 2, 'char_val': '*'}, {'index': 6, 'char_val': '*'}, {'index': 10, 'char_val': '*'}, {'index': 11, 'char_val': '*'}, {'index': 7, 'char_val': '*'}, {'index': 6, 'char_val': '*'}, {'index': 10, 'char_val': '*'}, {'index': 11, 'char_val': '*'}, {'index': 7, 'char_val': '*'}, {'index': 6, 'char_val': '*'}, {'index': 10, 'char_val': '*'}, {'index': 11, 'char_val': '*'}, {'index': 15, 'char_val': 'c'}] 
+#########################################################################################
+	[SOLVING mazeD]
+		timed @ 0.000823974609375
+		Length of solution 8 
+		Total Numer of States Visited 14 
+		Solutions Locations [{'index': 1, 'char_val': 'b'}, {'index': 5, 'char_val': 'c'}, {'index': 6, 'char_val': 'a'}, {'index': 10, 'char_val': 'b'}, {'index': 9, 'char_val': 'c'}, {'index': 13, 'char_val': 'a'}, {'index': 14, 'char_val': 'b'}, {'index': 15, 'char_val': 'c'}] 
+#########################################################################################
+[PROCESSING ALGORITHM] iterative_deepening_search
+#################################################################################
+	[SOLVING mazeA]
+		timed @ 2.4486849308013916
+		Length of solution 44 
+		Total Numer of States Visited not available 
+		Solutions Locations [{'index': 1, 'char_val': '*'}, {'index': 7, 'char_val': '*'}, {'index': 8, 'char_val': '*'}, {'index': 9, 'char_val': '*'}, {'index': 3, 'char_val': 'c'}, {'index': 2, 'char_val': 'a'}, {'index': 8, 'char_val': '*'}, {'index': 9, 'char_val': '*'}, {'index': 10, 'char_val': '*'}, {'index': 4, 'char_val': 'b'}, {'index': 3, 'char_val': 'c'}, {'index': 9, 'char_val': '*'}, {'index': 15, 'char_val': 'b'}, {'index': 16, 'char_val': 'c'}, {'index': 10, 'char_val': '*'}, {'index': 9, 'char_val': '*'}, {'index': 8, 'char_val': '*'}, {'index': 7, 'char_val': '*'}, {'index': 13, 'char_val': 'b'}, {'index': 12, 'char_val': '*'}, {'index': 18, 'char_val': '*'}, {'index': 19, 'char_val': 'b'}, {'index': 25, 'char_val': '*'}, {'index': 31, 'char_val': '*'}, {'index': 32, 'char_val': '*'}, {'index': 33, 'char_val': 'c'}, {'index': 34, 'char_val': 'a'}, {'index': 28, 'char_val': '*'}, {'index': 27, 'char_val': '*'}, {'index': 21, 'char_val': 'a'}, {'index': 15, 'char_val': 'b'}, {'index': 9, 'char_val': '*'}, {'index': 8, 'char_val': '*'}, {'index': 7, 'char_val': '*'}, {'index': 6, 'char_val': 'c'}, {'index': 12, 'char_val': '*'}, {'index': 18, 'char_val': '*'}, {'index': 24, 'char_val': 'c'}, {'index': 25, 'char_val': '*'}, {'index': 26, 'char_val': 'b'}, {'index': 27, 'char_val': '*'}, {'index': 28, 'char_val': '*'}, {'index': 29, 'char_val': '*'}, {'index': 35, 'char_val': 'c'}] 
+#########################################################################################
+	[SOLVING mazeB]
+		timed @ 0.0014069080352783203
+		Length of solution 8 
+		Total Numer of States Visited not available 
+		Solutions Locations [{'index': 1, 'char_val': 'b'}, {'index': 2, 'char_val': 'c'}, {'index': 6, 'char_val': '*'}, {'index': 5, 'char_val': 'b'}, {'index': 9, 'char_val': 'c'}, {'index': 10, 'char_val': '*'}, {'index': 11, 'char_val': '*'}, {'index': 15, 'char_val': 'c'}] 
+#########################################################################################
+	[SOLVING mazeC]
+		timed @ 0.0016148090362548828
+		Length of solution 8 
+		Total Numer of States Visited not available 
+		Solutions Locations [{'index': 1, 'char_val': '*'}, {'index': 2, 'char_val': '*'}, {'index': 3, 'char_val': '*'}, {'index': 7, 'char_val': '*'}, {'index': 6, 'char_val': '*'}, {'index': 10, 'char_val': '*'}, {'index': 11, 'char_val': '*'}, {'index': 15, 'char_val': 'c'}] 
+#########################################################################################
+	[SOLVING mazeD]
+		timed @ 0.0014102458953857422
+		Length of solution 8 
+		Total Numer of States Visited not available 
+		Solutions Locations [{'index': 1, 'char_val': 'b'}, {'index': 5, 'char_val': 'c'}, {'index': 6, 'char_val': 'a'}, {'index': 10, 'char_val': 'b'}, {'index': 9, 'char_val': 'c'}, {'index': 13, 'char_val': 'a'}, {'index': 14, 'char_val': 'b'}, {'index': 15, 'char_val': 'c'}] 
+#########################################################################################

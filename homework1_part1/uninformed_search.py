@@ -44,7 +44,7 @@ def breadth_first_search(problem):
             if node_to_tuple(child) not in explored and child not in frontier:
                 if problem.goal_test(child.state):
                     return child.depth, len(explored), child.solution()
-                frontier.append(child)
+                frontier.appendleft(child)
     return  None, None, None
 
 @algo_wrangler
@@ -93,7 +93,7 @@ def best_first_graph_search(problem, f):
                     del frontier[child]
                     frontier.append(child)
 
-    return None, None, None
+    return None, len(explored), None
 
 
 
