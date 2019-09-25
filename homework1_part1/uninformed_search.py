@@ -17,6 +17,7 @@ from homework1_part1.maze import Node
 SEARCH_ALGORITHMS = []
 node_to_tuple = lambda node: tuple([node.state['index'], node.count_star_as if node.count_star_as is not None else node.state['char_val'], node.parent])
 
+
 # decorator to grab all search algorithms so we can send problem to each
 def algo_wrangler(algo):
     SEARCH_ALGORITHMS.append(algo)
@@ -37,14 +38,19 @@ def breadth_first_search(problem):
     frontier = deque([node])
     while frontier:
         node = frontier.popleft()
+        print(f'expanding {node}')
+        print(f'expanded nodes parent is {node.parent}')
         # a putzy work around since state is a dictionary
         explored.add(node_to_tuple(node))
         children = node.expand(problem)
+        print(f'children are {children}')
         for child in children:
             if node_to_tuple(child) not in explored and child not in frontier:
                 if problem.goal_test(child.state):
                     return child.depth, len(explored), child.solution()
-                frontier.appendleft(child)
+                frontier.append(child)
+        print(f'frontier after membership checks {frontier}')
+        print(f'explored after membership testing {explored}')
     return  None, None, None
 
 @algo_wrangler
@@ -107,7 +113,7 @@ def depth_limited_search(problem, limit=50):
 
     def recursive_dls(node, problem, limit):
         if problem.goal_test(node.state):
-            return node.depth, 'not available', node.solution()
+            return node.depth, 0, node.solution()
         elif limit == 0:
             return 'cutoff'
         else:

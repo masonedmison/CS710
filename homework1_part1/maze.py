@@ -175,10 +175,10 @@ class Node:
     subclass this class."""
     # to asssign star val to how is is being 'counted' or 'played'
     star_char_sub = {'a':'b', 'b':'c', 'c':'a'}
-    def __init__(self, state, parent=None, action=None, path_cost=0):
+    def __init__(self, state, parent=None, action=None, path_cost=0, count_star_as=None):
         """Create a search tree Node, derived from a parent by an action."""
         self.state = state # {index: <array_index>, char_val:<char_val>}
-        self.count_star_as = None
+        self.count_star_as = count_star_as # for testing
         self.parent = parent
         if self.state['char_val'] == '*':
             if self.parent.count_star_as is None:
@@ -192,7 +192,7 @@ class Node:
             self.depth = parent.depth + 1
 
     def __repr__(self):
-        return "<Node {}>".format(self.state)
+        return "<Node {},{}>".format(self.state, self.count_star_as)
 
     def __lt__(self, node):
         return self.path_cost < node.path_cost
@@ -238,9 +238,19 @@ class Node:
     # want in other contexts.]
 
     def __eq__(self, other):
+        if not isinstance(other, Node):
+            return False
+        if self.parent is not None:
+            if other.parent is None:
+                return False
+            # else compare states
+            parents_equal = self.parent.state == other.parent.state and self.parent.count_star_as == other.parent.count_star_as
         return ( isinstance(other, Node) and self.state == other.state
-                 and self.count_star_as == other.count_star_as
+                 and self.count_star_as == other.count_star_as and parents_equal
                 )
 
     def __hash__(self):
-        return hash(tuple([*self.state.values(), self.count_star_as]))
+        # return hash(tuple([*self.state.values(), self.count_star_as]))
+        parent_hash = hash(self.parent.state.values()) + hash(self.parent.count_star_as) if self.parent is not None else 0
+        return hash(self.state.values()) + hash(self.count_star_as) + parent_hash
+        #return hash(self.state.values()) +hash(self.count_star_as) + hash(self.parent)
