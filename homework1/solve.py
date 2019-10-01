@@ -4,9 +4,9 @@ a driver to test search algorithms
 import time
 import pandas as pd
 import plotly.graph_objects as go
-from homework1_part1.mazes.mazes_to_test import mazes_to_test
-from homework1_part1.uninformed_search import SEARCH_ALGORITHMS, breadth_first_search
-from homework1_part1.maze import SequenceMaze
+from homework1.mazes.mazes_to_test import mazes_to_test
+from homework1.uninformed_search import SEARCH_ALGORITHMS, breadth_first_search
+from homework1.maze import SequenceMaze
 
 # graphs to pass as input in tuple format
 

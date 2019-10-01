@@ -10,8 +10,8 @@ length of solution; total number of states visisted; list of locations in soluti
 import sys
 from collections import deque
 from utils import memoize
-from homework1_part1.priority_queue import PriorityQueue
-from homework1_part1.maze import Node
+from homework1.priority_queue import PriorityQueue
+from homework1.maze import Node
 
 
 SEARCH_ALGORITHMS = []

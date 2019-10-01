@@ -1,6 +1,6 @@
 """CSP (Constraint Satisfaction Problems) problems and solvers. (Chapter 6). Referenced from aima repo"""
 from utils import argmin_random_tie, count, first, extend
-from homework1_part1.maze import MazeProblem
+from homework1.maze import MazeProblem
 
 
 

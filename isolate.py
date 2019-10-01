@@ -1,8 +1,8 @@
 from math import sqrt
 from collections import namedtuple
 from itertools import cycle
-from homework1_part1.maze import SequenceMaze, Node
-from homework1_part1.mazes import mazes_to_test
+from homework1.maze import SequenceMaze, Node
+from homework1.mazes import mazes_to_test
 
 
 input = (6, [
@@ -16,19 +16,29 @@ input = (6, [
 
 # print(one_right, one_left)
 
-from homework1_part1.priority_queue import PriorityQueue
+from homework1.priority_queue import PriorityQueue
 
 node_to_tuple = lambda node: tuple([node.state['index'], node.count_star_as if node.count_star_as is not None else node.state['char_val'], node.parent])
 
 
-pare_node1 = Node(dict(index=0,char_val='a'), count_star_as='a')
-pare_node2 = Node(dict(index=0,char_val='a'), count_star_as='b')
+depth = 4
 
-n1 = Node({'index':0, 'char_val':'a'}, count_star_as='b', parent=pare_node2)
-n2 = Node({'index':0, 'char_val':'a'}, count_star_as='b', parent=pare_node1)
-print('node1', hash(n1))
-print('node2', hash(n2))
-print(n1==n2)
 
-nodes = [n1,n2]
+def _to_coordinate(state_index):
+    """take index of 1d list and convert it to a coordinate"""
+    return int(state_index / 6), state_index % depth
 
+
+def manhatten_distance(state_indexA, state_indexB):
+    x1, y1  = _to_coordinate(state_indexA)
+    x2, y2 = _to_coordinate(state_indexB)
+    return abs(x1 - x2) + abs(y1 - y2)
+
+def euclidean_distance(state_indexA, state_indexB):
+    x1, y1  = _to_coordinate(state_indexA)
+    x2, y2 = _to_coordinate(state_indexB)
+    return sqrt( pow((x1 - x2), 2) + pow((y1 - y2), 2) )
+
+print('md', manhatten_distance(0,6))
+
+print('ed', euclidean_distance(0,6))
