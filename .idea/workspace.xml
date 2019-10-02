@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="29f629be-7f74-4704-bc6c-26b2ea81c5e9" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/homework1/informed_search.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework1_part1/csp.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework1/csp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework1_part1/maze.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework1/maze.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework1_part1/mazes/mazes_to_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework1/mazes/mazes_to_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework1_part1/priority_queue.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework1/priority_queue.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework1_part1/seq_maze_res.txt" beforeDir="false" afterPath="$PROJECT_DIR$/homework1/seq_maze_res.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework1_part1/solve.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework1/solve.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework1_part1/uninformed_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework1/uninformed_search.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework1/informed_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework1/informed_search.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework1/maze.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework1/maze.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/isolate.py" beforeDir="false" afterPath="$PROJECT_DIR$/isolate.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,8 +18,8 @@
       <file leaf-file-name="isolate.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/isolate.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" selection-start-line="26" selection-end-line="39" selection-end-column="56" />
+            <state relative-caret-position="22">
+              <caret line="52" selection-start-line="52" selection-end-line="53" selection-end-column="75" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -34,11 +27,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="maze.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="maze.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/homework1/maze.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="25" column="46" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="46" />
+            <state relative-caret-position="382">
+              <caret line="61" column="79" selection-start-line="61" selection-start-column="79" selection-end-line="61" selection-end-column="79" />
               <folding>
                 <element signature="e#164#208#0" expanded="true" />
               </folding>
@@ -46,11 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="informed_search.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="informed_search.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/homework1/informed_search.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="809">
-              <caret line="64" column="92" selection-start-line="64" selection-start-column="92" selection-end-line="64" selection-end-column="92" />
+            <state relative-caret-position="240">
+              <caret line="16" column="14" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -93,7 +86,11 @@
       <find>print</find>
       <find>'index': 9</find>
       <find>'index': 9, 'char_val': 'c'</find>
+      <find>dim_val</find>
     </findStrings>
+    <replaceStrings>
+      <replace>self.dim_val</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -113,8 +110,9 @@
         <option value="$PROJECT_DIR$/homework1_part1/mazes/mazes_to_test.py" />
         <option value="$PROJECT_DIR$/homework1_part1/uninformed_search.py" />
         <option value="$PROJECT_DIR$/homework1_part1/solve.py" />
-        <option value="$PROJECT_DIR$/isolate.py" />
         <option value="$PROJECT_DIR$/homework1/informed_search.py" />
+        <option value="$PROJECT_DIR$/isolate.py" />
+        <option value="$PROJECT_DIR$/homework1/maze.py" />
       </list>
     </option>
   </component>
@@ -241,10 +239,11 @@
       <window_info content_ui="combo" id="Project" order="1" side_tool="true" weight="0.17678571" />
       <window_info anchor="bottom" id="TODO" order="10" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="6" weight="0.41948718" />
+      <window_info anchor="bottom" id="Find" order="5" weight="0.32923076" />
+      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.41948718" />
       <window_info anchor="bottom" id="Version Control" order="3" />
       <window_info anchor="bottom" id="Python Console" order="0" />
-      <window_info id="Structure" order="2" side_tool="true" weight="0.175" />
+      <window_info id="Structure" order="2" side_tool="true" visible="true" weight="0.175" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.32923076" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info id="Favorites" order="0" side_tool="true" />
@@ -254,7 +253,6 @@
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="5" weight="0.32923076" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -412,16 +410,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/homework1/maze.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="25" column="46" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="46" />
-          <folding>
-            <element signature="e#164#208#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/homework1/mazes/mazes_to_test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="489">
@@ -429,22 +417,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/isolate.py">
+    <entry file="file://$PROJECT_DIR$/homework1/informed_search.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" selection-start-line="26" selection-end-line="39" selection-end-column="56" />
+        <state relative-caret-position="240">
+          <caret line="16" column="14" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/homework1/informed_search.py">
+    <entry file="file://$PROJECT_DIR$/isolate.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="809">
-          <caret line="64" column="92" selection-start-line="64" selection-start-column="92" selection-end-line="64" selection-end-column="92" />
+        <state relative-caret-position="22">
+          <caret line="52" selection-start-line="52" selection-end-line="53" selection-end-column="75" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework1/maze.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="61" column="79" selection-start-line="61" selection-start-column="79" selection-end-line="61" selection-end-column="79" />
+          <folding>
+            <element signature="e#164#208#0" expanded="true" />
           </folding>
         </state>
       </provider>

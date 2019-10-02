@@ -8,21 +8,23 @@ from homework1.maze import Node
 node_to_tuple = lambda node: tuple([node.state['index'], node.count_star_as if node.count_star_as is not None else node.state['char_val'], node.parent])
 
 
-# heuristic functions
-def _to_coordinate(state_index):
+# heuristic functions and helpers
+def _to_coordinate(state_index, depth):
     """take index of 1d list and convert it to a coordinate"""
     return int(state_index / 6), state_index % depth
 
 
-def manhatten_distance(state_indexA, state_indexB):
+def manhatten_distance(state_indexA, state_indexB, dim):
     x1, y1  = _to_coordinate(state_indexA)
     x2, y2 = _to_coordinate(state_indexB)
     return abs(x1 - x2) + abs(y1 - y2)
 
-def euclidean_distance(state_indexA, state_indexB):
+def euclidean_distance(state_indexA, state_indexB, dim):
     x1, y1  = _to_coordinate(state_indexA)
     x2, y2 = _to_coordinate(state_indexB)
     return sqrt( pow((x1 - x2), 2) + pow((y1 - y2), 2) )
+
+########################################################
 
 def best_first_graph_search(problem, f):
     """Search the nodes with the lowest f scores first.
@@ -62,7 +64,7 @@ def astar_search(problem, h = None):
     else in your Problem subclass."""
     h = memoize(h or problem.h, 'h')
     goal = problem.goal['index'] # get goal state index
-    return best_first_graph_search(problem, lambda n: n.path_cost + h(n.state['index'], goal))
+    return best_first_graph_search(problem, lambda n: n.path_cost + h(n.state['index'], goal, problem.dim_val))
 
 # unsure of which iteration to use...
 def local_search_gradient_ascent(problem, schedule):

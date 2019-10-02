@@ -57,7 +57,9 @@ class MazeProblem(object):
 class SequenceMaze(MazeProblem):
 
     # a set of valid actions for Part 1
-    valid_actions = {'ab', 'a*', 'bc', 'b*', 'ca', 'c*', 'a*b','b*c', 'c*a'}
+    valid_move_seqs = {'ab', 'a*', 'bc', 'b*', 'ca', 'c*', 'a*b', 'b*c', 'c*a'}
+    possible_actions = ('up', 'down', 'right', 'left', '2up', '2dwn', '2lft', '2rt', '1up1lft', '1up1rt', '1lft1up',
+                        '1rt1up', '1dwn1lft', '1dwn1rt', '1rt1dwn', '1lft1dwn')
 
     def __init__(self, maze_dim_tuple):
         # unpack tuple values to dim and char list
@@ -66,7 +68,7 @@ class SequenceMaze(MazeProblem):
         if not self._is_valid_maze(dim_val, char_list):
             raise ValueError('invalid maze values passed in')
         super().__init__( {'index':0, 'char_val':char_list[0]}, {'index':int(pow(dim_val,2) - 1), 'char_val': char_list[len(char_list) - 1]} )
-        self._dim_val = dim_val
+        self.dim_val = dim_val
         # where seq is a list of Nodes
         self.maze_char_list = maze_dim_tuple[1]
 
@@ -78,7 +80,7 @@ class SequenceMaze(MazeProblem):
         maze_str = """"""
         for char in self.maze_char_list:
             maze_str += char + '\t'
-            if count % self._dim_val == 0:
+            if count % self.dim_val == 0:
                 maze_str += '\n\n'
             count += 1
         return maze_str
@@ -100,7 +102,7 @@ class SequenceMaze(MazeProblem):
         # get valid indexes -- where state is tuple(<index>, val)
 
         cur_val = state['char_val']
-        valid_indices = self._get_valid_indices(state, ['up','down','right', 'left'])
+        valid_indices = self._get_valid_indices(state, self.possible_actions)
 
         valid_actions = list()
         # for every valid index check
@@ -109,7 +111,7 @@ class SequenceMaze(MazeProblem):
                 index = valid_indices[k]
                 # concat current state value and index value
                 move_sequence = cur_val + self.maze_char_list[index].strip()
-                if move_sequence in self.valid_actions:
+                if move_sequence in self.valid_move_seqs:
                     if parent_i == index:
                         continue
                     valid_actions.append(k)
@@ -125,16 +127,50 @@ class SequenceMaze(MazeProblem):
         """
         cur_state_i = state['index']
         if action == 'up':
-            res_i = cur_state_i - self._dim_val if cur_state_i - self._dim_val > 0 else None
+            res_i = cur_state_i - self.dim_val if cur_state_i - self.dim_val >= 0 else None
         elif action == 'down':
-            res_i = cur_state_i + self._dim_val if cur_state_i + self._dim_val < len(self.maze_char_list) else None
+            res_i = cur_state_i + self.dim_val if cur_state_i + self.dim_val < len(self.maze_char_list) else None
         elif action == 'left':
-            res_i = cur_state_i - 1 if cur_state_i % self._dim_val != 0 else None
+            res_i = cur_state_i - 1 if cur_state_i % self.dim_val != 0 else None
         elif action == 'right':
-            res_i = cur_state_i + 1 if cur_state_i % self._dim_val != self._dim_val - 1 else None
+            res_i = cur_state_i + 1 if cur_state_i % self.dim_val != self.dim_val - 1 else None
+        elif action == '2up':
+            res_i = (cur_state_i - self.dim_val) - self.dim_val if (cur_state_i - self.dim_val) - self.dim_val >= 0 else None
+        elif action == '2dwn':
+            res_i = (cur_state_i + self.dim_val) + self.dim_val if (cur_state_i + self.dim_val) + self.dim_val < len(
+                self.maze_char_list) else None
+        elif action == '2lft':
+            res_i = cur_state_i - 2 if (cur_state_i - 1) % self.dim_val != 0 else None
+        elif action == '2rt':
+            res_i = cur_state_i + 2 if (cur_state_i + 1) % self.dim_val != self.dim_val - 1 else None
+        elif action == '1up1lft':
+            res_i = (
+                                cur_state_i - self.dim_val) - 1 if cur_state_i - self.dim_val > 0 and cur_state_i % self.dim_val != 0 else None
+        elif action == '1up1rt':
+            res_i = (
+                                cur_state_i - self.dim_val) + 1 if cur_state_i - self.dim_val > 0 and cur_state_i % self.dim_val != self.dim_val - 1 else None
+        elif action == '1lft1up':
+            res_i = (
+                                cur_state_i - self.dim_val) - 1 if cur_state_i - self.dim_val > 0 and cur_state_i % self.dim_val != 0 else None
+        elif action == '1rt1up':
+            res_i = (
+                                cur_state_i - self.dim_val) + 1 if cur_state_i - self.dim_val > 0 and cur_state_i % self.dim_val != self.dim_val - 1 else None
+        elif action == '1dwn1lft':
+            res_i = (
+                                cur_state_i + self.dim_val) - 1 if cur_state_i + self.dim_val > 0 and cur_state_i % self.dim_val != 0 else None
+        elif action == '1dwn1rt':
+            res_i = (
+                                cur_state_i + self.dim_val) + 1 if cur_state_i + self.dim_val > 0 and cur_state_i % self.dim_val != self.dim_val - 1 else None
+        elif action == '1rt1dwn':
+            res_i = (
+                                cur_state_i + self.dim_val) + 1 if cur_state_i + self.dim_val > 0 and cur_state_i % self.dim_val != self.dim_val - 1 else None
+        elif action == '1lft1dwn':
+            res_i = (
+                                cur_state_i + self.dim_val) - 1 if cur_state_i + self.dim_val > 0 and cur_state_i % self.dim_val != 0 else None
 
         else:
-            raise ValueError('incorrect action passed to Maze Sequence.result() must be up, down, right, or left')
+            raise ValueError(
+                f'incorrect action {action} passed to Maze Sequence.result() must be up, down, right, or left')
 
         return res_i
 
