@@ -1,12 +1,21 @@
 from math import sqrt
-from utils import memoize
+from random import choice
+from utils import memoize, argmax_random_tie, argmin_random_tie
 from homework1.priority_queue import PriorityQueue
 from homework1.maze import Node
 
 
+INFORMED_SEARCH_ALGORITHMS = []
+
 # node to tuple from part1 uninformed search - mod as needed
 node_to_tuple = lambda node: tuple([node.state['index'], node.count_star_as if node.count_star_as is not None else node.state['char_val'], node.parent])
 
+infinity = float('inf')
+
+# decorator to grab all search algorithms so we can send problem to each
+def algo_wrangler(algo):
+    INFORMED_SEARCH_ALGORITHMS.append(algo)
+    return algo
 
 # heuristic functions and helpers
 def _to_coordinate(state_index, depth):
@@ -15,13 +24,13 @@ def _to_coordinate(state_index, depth):
 
 
 def manhatten_distance(state_indexA, state_indexB, dim):
-    x1, y1  = _to_coordinate(state_indexA)
-    x2, y2 = _to_coordinate(state_indexB)
+    x1, y1  = _to_coordinate(state_indexA, dim)
+    x2, y2 = _to_coordinate(state_indexB, dim)
     return abs(x1 - x2) + abs(y1 - y2)
 
 def euclidean_distance(state_indexA, state_indexB, dim):
-    x1, y1  = _to_coordinate(state_indexA)
-    x2, y2 = _to_coordinate(state_indexB)
+    x1, y1  = _to_coordinate(state_indexA, dim)
+    x2, y2 = _to_coordinate(state_indexB, dim)
     return sqrt( pow((x1 - x2), 2) + pow((y1 - y2), 2) )
 
 ########################################################
@@ -42,7 +51,7 @@ def best_first_graph_search(problem, f):
     while frontier:
         node = frontier.pop()
         if problem.goal_test(node.state):
-            return node.depth, len(explored), node.solution()
+            return node.depth, len(explored), node.solution(), node.path_cost
         explored.add(node_to_tuple(node))
         for child in node.expand(problem):
             if node_to_tuple(child) not in explored and child not in frontier:
@@ -52,23 +61,46 @@ def best_first_graph_search(problem, f):
                     del frontier[child]
                     frontier.append(child)
 
-    return None, len(explored), None
+    return None, len(explored), None, None
 
-
-def greedy_search(problem, h = None):
-    h = memoize(h or problem.h, 'h')
+@algo_wrangler
+def greedy_search(problem, h):
+    """ Greedy search is best first graph search with f(n) = h(n) where h is hueristic function"""
     goal = problem.goal['index'] # get goal state index
     return best_first_graph_search(problem, lambda n: h(n.state['index'], goal, problem.dim_val))
 
-def astar_search(problem, h = None):
-    """A* search is best-first graph search with f(n) = g(n)+h(n).
-    You need to specify the h function when you call astar_search, or
-    else in your Problem subclass."""
-    h = memoize(h or problem.h, 'h')
+@algo_wrangler
+def astar_search(problem, h):
+    """A* search is best-first graph search with f(n) = g(n)+h(n)."""
     goal = problem.goal['index'] # get goal state index
     return best_first_graph_search(problem, lambda n: n.path_cost + h(n.state['index'], goal, problem.dim_val))
 
-# unsure of which iteration to use...
-def local_search_gradient_ascent(problem, schedule):
-    pass
+@algo_wrangler
+def hill_climbing(problem, h, rand_cur=None):
+    """From the initial node, keep choosing the neighbor with highest value,
+    stopping when no neighbor is better. [Figure 4.2]"""
+    if rand_cur is None:
+        current = Node(problem.initial)
+    else:
+        current=rand_cur
+    goal = problem.goal['index'] # goal index
+    # path plus hueristic function
+    # path_plus_h = lambda node: node.path_cost + h(node.state['index'], goal, problem.dim_val)
+    h_lam = lambda node: h(node.state['index'], goal, problem.dim_val)
+    while True:
+        if h_lam(current) == h_lam(Node(problem.goal)):
+            break
+        neighbors = current.expand(problem)
+        if not neighbors:
+            break
+        neighbor = argmax_random_tie(neighbors, key=h_lam)
+        if h_lam(neighbor) <= h_lam(current):
+            break
+        current = neighbor
+    if not problem.goal_test(current.state):
+        rand_i = choice(list(range(problem.dim_val*problem.dim_val)))
+        rand_state= dict(index=rand_i, char_val=problem.maze_char_list[rand_i])
+        print(f'new node generated at {rand_state}')
+        hill_climbing(problem,h , rand_cur=Node(rand_state))
+    return current.depth, None, current.solution(), current.path_cost
 

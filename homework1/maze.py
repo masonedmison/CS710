@@ -2,11 +2,8 @@
 A Maze and Node Implementation
 search.py within the aima-python repo is heavily referenced <https://github.com/aimacode/aima-python/blob/master/search.py>
 """
-
-from collections import namedtuple, Iterable
 from math import pow
 
-state = namedtuple('State',('location','value'))
 
 class MazeProblem(object):
     """The abstract class for a formal problem. You should subclass
@@ -51,7 +48,6 @@ class MazeProblem(object):
         state2.  If the path does matter, it will consider c and maybe state1
         and action. The default method costs 1 for every step in the path."""
         return c + 1
-
 
 
 class SequenceMaze(MazeProblem):
@@ -153,29 +149,21 @@ class SequenceMaze(MazeProblem):
         elif action == 'right':
             res_i = cur_state_i + 1 if cur_state_i % self.dim_val != self.dim_val - 1 else None
         elif action == '2up':
-            res_i = (cur_state_i - self.dim_val) - self.dim_val if (
-                                                                               cur_state_i - self.dim_val) - self.dim_val >= 0 else None
+            res_i = (cur_state_i - self.dim_val) - self.dim_val if (cur_state_i - self.dim_val) - self.dim_val >= 0 else None
         elif action == '2dwn':
-            res_i = (cur_state_i + self.dim_val) + self.dim_val if (cur_state_i + self.dim_val) + self.dim_val < len(
-                self.maze_char_list) else None
+            res_i = (cur_state_i + self.dim_val) + self.dim_val if (cur_state_i + self.dim_val) + self.dim_val < len(self.maze_char_list) else None
         elif action == '2lft':
-            res_i = cur_state_i - 2 if (
-                                                   cur_state_i - 1) % self.dim_val != 0 and cur_state_i % self.dim_val != 0 else None
+            res_i = cur_state_i - 2 if (cur_state_i - 1) % self.dim_val != 0 and cur_state_i % self.dim_val != 0 else None
         elif action == '2rt':
-            res_i = cur_state_i + 2 if (
-                                                   cur_state_i + 1) % self.dim_val != self.dim_val - 1 and cur_state_i % self.dim_val != self.dim_val - 1 else None
+            res_i = cur_state_i + 2 if (cur_state_i + 1) % self.dim_val != self.dim_val - 1 and cur_state_i % self.dim_val != self.dim_val - 1 else None
         elif action == '1up1lft':
-            res_i = (
-                                cur_state_i - self.dim_val) - 1 if cur_state_i - self.dim_val > 0 and cur_state_i % self.dim_val != 0 else None
+            res_i = (cur_state_i - self.dim_val) - 1 if cur_state_i - self.dim_val > 0 and cur_state_i % self.dim_val != 0 else None
         elif action == '1up1rt':
-            res_i = (
-                                cur_state_i - self.dim_val) + 1 if cur_state_i - self.dim_val >= 0 and cur_state_i % self.dim_val != self.dim_val - 1 else None
+            res_i = (cur_state_i - self.dim_val) + 1 if cur_state_i - self.dim_val >= 0 and cur_state_i % self.dim_val != self.dim_val - 1 else None
         elif action == '1lft1up':
-            res_i = (
-                                cur_state_i - self.dim_val) - 1 if cur_state_i - self.dim_val - 1 >= 0 and cur_state_i % self.dim_val != 0 else None
+            res_i = (cur_state_i - self.dim_val) - 1 if cur_state_i - self.dim_val - 1 >= 0 and cur_state_i % self.dim_val != 0 else None
         elif action == '1rt1up':
-            res_i = (
-                                cur_state_i - self.dim_val) + 1 if cur_state_i - self.dim_val > 0 and cur_state_i % self.dim_val != self.dim_val - 1 else None
+            res_i = (cur_state_i - self.dim_val) + 1 if cur_state_i - self.dim_val > 0 and cur_state_i % self.dim_val != self.dim_val - 1 else None
         elif action == '1dwn1lft':
             res_i = (cur_state_i + self.dim_val) - 1 if cur_state_i + self.dim_val < len(
                 self.maze_char_list) and cur_state_i % self.dim_val != 0 else None
@@ -188,12 +176,11 @@ class SequenceMaze(MazeProblem):
         elif action == '1lft1dwn':
             res_i = (cur_state_i + self.dim_val) - 1 if cur_state_i + self.dim_val < len(
                 self.maze_char_list) and cur_state_i % self.dim_val != 0 else None
-
         else:
             raise ValueError(
                 f'incorrect action {action} passed to Maze Sequence.result() must be up, down, right, or left')
 
-        return res_i
+        return res_i # at any rate return the result index or None if it is out of bounds
 
     def result(self, state, action):
         """Return the state that results from executing the given
@@ -207,17 +194,25 @@ class SequenceMaze(MazeProblem):
         return state == self.goal
 
     def path_cost(self, c, state1, action, state2):
-        """Return the cost of a solution path that arrives at state2 from
-        state1 via action, assuming cost c to get up to state1. If the problem
-        is such that the path doesn't matter, this function will only look at
-        state2.  If the path does matter, it will consider c and maybe state1
-        and action. The default method costs 1 for every step in the path."""
-        # if state char values are a,b,c the +1
-        if state2['char_val'] == 'a' or 'b' or 'c':
-            return c + 1
-
+        """Return the cost of a solution path """
+        # 1 step moves - check for action membership in middle_map keys - all two move possibilities in keys
+        if action not in self.middle_map.keys():
+            if state2['char_val'] == 'a' or 'b' or 'c':
+                return c + 1
+            # then second val is a * - so move costs 2
+            else:
+                c+2
         else:
-            c+2
+            two_step_c = 0
+            mid_val = self.result(state1, self.middle_map[action])['char_val']
+            if mid_val == '*':
+                two_step_c+=1
+            if state2['char_val'] == '*':
+                two_step_c+=1
+            # all two step moves cost at least 2 (if both state char vals are letters)
+            two_step_c+=2
+            return c+ two_step_c
+
 
 class Node:
     """A node in a search tree. Contains a pointer to the parent (the node
@@ -253,11 +248,13 @@ class Node:
 
     def _set_count_star_as(self):
         """helper to set char method so as to not clutter the __init__ method"""
+        count_star_as=None
         star_map_type = self.double_star_char_sub if self.action in SequenceMaze.middle_map.keys() else self.single_star_char_sub
-        if self.parent.count_star_as is None:
-            count_star_as = star_map_type[self.parent.state['char_val']]
-        else:
-            count_star_as = star_map_type[self.parent.count_star_as]
+        if self.parent: # needed for random restart - otherwise the start would never be a star,ie always would be parent of a star char val
+            if self.parent.count_star_as is None:
+                count_star_as = star_map_type[self.parent.state['char_val']]
+            else:
+                count_star_as = star_map_type[self.parent.count_star_as]
 
         return count_star_as
 
@@ -277,11 +274,8 @@ class Node:
     def child_node(self, problem, action):
         """[Figure 3.10]"""
         middle_val = None
-        print('\n#########\naction', action)
         if action in problem.middle_map.keys():
             middle_val = problem.get_middle_val(self.state, action)
-            print('mid_val in child node', middle_val)
-            print('\n###############end')
         next_state = problem.result(self.state, action)
 
         next_node = Node(next_state, parent=self, action=action,
@@ -296,8 +290,7 @@ class Node:
         seq = []
         for node in self.path()[1:]:
             if node.mid_val_state is not None:
-                print('mid val in solution', node.mid_val_state)
-                seq.append(('TRANSITION NODE',node.mid_val_state))
+                seq.append(('TRANSITION NODE in 2 move seq',node.mid_val_state))
             seq.append(node)
 
         return seq

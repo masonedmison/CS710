@@ -14,13 +14,13 @@ from homework1.priority_queue import PriorityQueue
 from homework1.maze import Node
 
 
-SEARCH_ALGORITHMS = []
+UNINFORMED_SEARCH_ALGORITHMS = []
 node_to_tuple = lambda node: tuple([node.state['index'], node.count_star_as if node.count_star_as is not None else node.state['char_val'], node.parent])
 
 
 # decorator to grab all search algorithms so we can send problem to each
 def algo_wrangler(algo):
-    SEARCH_ALGORITHMS.append(algo)
+    UNINFORMED_SEARCH_ALGORITHMS.append(algo)
     return algo
 
 

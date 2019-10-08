@@ -1,130 +1,113 @@
 
 #########################################################################################
-[PROCESSING ALGORITHM] breadth_first_search
+[PROCESSING ALGORITHM] greedy_search
 #################################################################################
 	[SOLVING mazeA]
-		timed @ 0.910646915435791
-		Length of solution 7 
-		Total Numer of States Visited 313 
-		Solutions Locations [{'index': 1, 'char_val': '*'}, {'index': 6, 'char_val': 'c'}, {'index': 18, 'char_val': '*'}, {'index': 25, 'char_val': '*'}, {'index': 27, 'char_val': '*'}, {'index': 29, 'char_val': '*'}, {'index': 35, 'char_val': 'c'}] 
+		timed @ 0.13087105751037598
+		Length of solution 13 
+		Total Numer of States Visited 293 
+		Solutions Locations [('TRANSITION NODE in 2 move seq', {'index': 1, 'char_val': '*'}), <Node {'index': 7, 'char_val': '*'}, star counts as: c>, ('TRANSITION NODE in 2 move seq', {'index': 8, 'char_val': '*'}), <Node {'index': 14, 'char_val': 'b'}, star counts as: None>, <Node {'index': 8, 'char_val': '*'}, star counts as: c>, ('TRANSITION NODE in 2 move seq', {'index': 7, 'char_val': '*'}), <Node {'index': 13, 'char_val': 'b'}, star counts as: None>, ('TRANSITION NODE in 2 move seq', {'index': 12, 'char_val': '*'}), <Node {'index': 18, 'char_val': '*'}, star counts as: a>, ('TRANSITION NODE in 2 move seq', {'index': 19, 'char_val': 'b'}), <Node {'index': 25, 'char_val': '*'}, star counts as: c>, ('TRANSITION NODE in 2 move seq', {'index': 31, 'char_val': '*'}), <Node {'index': 32, 'char_val': '*'}, star counts as: b>, <Node {'index': 33, 'char_val': 'c'}, star counts as: None>, <Node {'index': 34, 'char_val': 'a'}, star counts as: None>, <Node {'index': 28, 'char_val': '*'}, star counts as: b>, <Node {'index': 27, 'char_val': '*'}, star counts as: c>, ('TRANSITION NODE in 2 move seq', {'index': 28, 'char_val': '*'}), <Node {'index': 29, 'char_val': '*'}, star counts as: b>, <Node {'index': 35, 'char_val': 'c'}, star counts as: None>] 
+		 Path Cost 31
 #########################################################################################
 	[SOLVING mazeB]
-		timed @ 0.006918907165527344
-		Length of solution 3 
-		Total Numer of States Visited 5 
-		Solutions Locations [{'index': 2, 'char_val': 'c'}, {'index': 10, 'char_val': '*'}, {'index': 15, 'char_val': 'c'}] 
+		timed @ 0.002786874771118164
+		Length of solution 6 
+		Total Numer of States Visited 11 
+		Solutions Locations [('TRANSITION NODE in 2 move seq', {'index': 1, 'char_val': 'b'}), <Node {'index': 2, 'char_val': 'c'}, star counts as: None>, <Node {'index': 6, 'char_val': '*'}, star counts as: a>, <Node {'index': 10, 'char_val': '*'}, star counts as: b>, ('TRANSITION NODE in 2 move seq', {'index': 11, 'char_val': '*'}), <Node {'index': 7, 'char_val': 'a'}, star counts as: None>, <Node {'index': 11, 'char_val': '*'}, star counts as: b>, <Node {'index': 15, 'char_val': 'c'}, star counts as: None>] 
+		 Path Cost 9
 #########################################################################################
 	[SOLVING mazeC]
-		timed @ 0.018970727920532227
-		Length of solution 4 
-		Total Numer of States Visited 14 
-		Solutions Locations [{'index': 2, 'char_val': '*'}, {'index': 3, 'char_val': '*'}, {'index': 11, 'char_val': '*'}, {'index': 15, 'char_val': 'c'}] 
+		timed @ 0.0050661563873291016
+		Length of solution 6 
+		Total Numer of States Visited 15 
+		Solutions Locations [('TRANSITION NODE in 2 move seq', {'index': 1, 'char_val': '*'}), <Node {'index': 2, 'char_val': '*'}, star counts as: c>, <Node {'index': 6, 'char_val': '*'}, star counts as: a>, <Node {'index': 10, 'char_val': '*'}, star counts as: b>, <Node {'index': 14, 'char_val': 'c'}, star counts as: None>, ('TRANSITION NODE in 2 move seq', {'index': 10, 'char_val': '*'}), <Node {'index': 11, 'char_val': '*'}, star counts as: b>, <Node {'index': 15, 'char_val': 'c'}, star counts as: None>] 
+		 Path Cost 12
 #########################################################################################
 	[SOLVING mazeD]
-		timed @ 0.010082006454467773
-		Length of solution 3 
-		Total Numer of States Visited 9 
-		Solutions Locations [{'index': 5, 'char_val': 'c'}, {'index': 7, 'char_val': 'b'}, {'index': 15, 'char_val': 'c'}] 
-#########################################################################################
-	[SOLVING mazeE]
-		timed @ 0.6376731395721436
-		Length of solution 6 
-		Total Numer of States Visited 242 
-		Solutions Locations [{'index': 7, 'char_val': '*'}, {'index': 8, 'char_val': '*'}, {'index': 15, 'char_val': 'c'}, {'index': 27, 'char_val': '*'}, {'index': 28, 'char_val': '*'}, {'index': 35, 'char_val': 'c'}] 
-#########################################################################################
-[PROCESSING ALGORITHM] depth_first_search_with_backtrack
-#################################################################################
-	[SOLVING mazeA]
-		timed @ 0.3512403964996338
-		Length of solution 57 
-		Total Numer of States Visited 261 
-		Solutions Locations [{'index': 7, 'char_val': '*'}, {'index': 6, 'char_val': 'c'}, {'index': 12, 'char_val': '*'}, {'index': 18, 'char_val': '*'}, {'index': 24, 'char_val': 'c'}, {'index': 30, 'char_val': 'a'}, {'index': 25, 'char_val': '*'}, {'index': 24, 'char_val': 'c'}, {'index': 18, 'char_val': '*'}, {'index': 12, 'char_val': '*'}, {'index': 6, 'char_val': 'c'}, {'index': 7, 'char_val': '*'}, {'index': 13, 'char_val': 'b'}, {'index': 12, 'char_val': '*'}, {'index': 19, 'char_val': 'b'}, {'index': 25, 'char_val': '*'}, {'index': 31, 'char_val': '*'}, {'index': 32, 'char_val': '*'}, {'index': 25, 'char_val': '*'}, {'index': 31, 'char_val': '*'}, {'index': 19, 'char_val': 'b'}, {'index': 12, 'char_val': '*'}, {'index': 18, 'char_val': '*'}, {'index': 13, 'char_val': 'b'}, {'index': 1, 'char_val': '*'}, {'index': 7, 'char_val': '*'}, {'index': 14, 'char_val': 'b'}, {'index': 8, 'char_val': '*'}, {'index': 7, 'char_val': '*'}, {'index': 1, 'char_val': '*'}, {'index': 8, 'char_val': '*'}, {'index': 7, 'char_val': '*'}, {'index': 1, 'char_val': '*'}, {'index': 8, 'char_val': '*'}, {'index': 3, 'char_val': 'c'}, {'index': 2, 'char_val': 'a'}, {'index': 1, 'char_val': '*'}, {'index': 8, 'char_val': '*'}, {'index': 15, 'char_val': 'b'}, {'index': 9, 'char_val': '*'}, {'index': 8, 'char_val': '*'}, {'index': 10, 'char_val': '*'}, {'index': 9, 'char_val': '*'}, {'index': 16, 'char_val': 'c'}, {'index': 4, 'char_val': 'b'}, {'index': 3, 'char_val': 'c'}, {'index': 10, 'char_val': '*'}, {'index': 9, 'char_val': '*'}, {'index': 4, 'char_val': 'b'}, {'index': 16, 'char_val': 'c'}, {'index': 9, 'char_val': '*'}, {'index': 10, 'char_val': '*'}, {'index': 17, 'char_val': '*'}, {'index': 23, 'char_val': 'c'}, {'index': 29, 'char_val': '*'}, {'index': 28, 'char_val': '*'}, {'index': 35, 'char_val': 'c'}] 
-#########################################################################################
-	[SOLVING mazeB]
-		timed @ 0.003323078155517578
-		Length of solution 4 
-		Total Numer of States Visited 4 
-		Solutions Locations [{'index': 1, 'char_val': 'b'}, {'index': 6, 'char_val': '*'}, {'index': 10, 'char_val': '*'}, {'index': 15, 'char_val': 'c'}] 
-#########################################################################################
-	[SOLVING mazeC]
-		timed @ 0.0036869049072265625
+		timed @ 0.002015829086303711
 		Length of solution 5 
-		Total Numer of States Visited 5 
-		Solutions Locations [{'index': 1, 'char_val': '*'}, {'index': 6, 'char_val': '*'}, {'index': 5, 'char_val': 'a'}, {'index': 10, 'char_val': '*'}, {'index': 15, 'char_val': 'c'}] 
-#########################################################################################
-	[SOLVING mazeD]
-		timed @ 0.0020568370819091797
-		Length of solution 3 
-		Total Numer of States Visited 3 
-		Solutions Locations [{'index': 5, 'char_val': 'c'}, {'index': 10, 'char_val': 'b'}, {'index': 15, 'char_val': 'c'}] 
+		Total Numer of States Visited 16 
+		Solutions Locations [('TRANSITION NODE in 2 move seq', {'index': 1, 'char_val': 'b'}), <Node {'index': 2, 'char_val': '*'}, star counts as: c>, ('TRANSITION NODE in 2 move seq', {'index': 6, 'char_val': 'a'}), <Node {'index': 10, 'char_val': 'b'}, star counts as: None>, <Node {'index': 9, 'char_val': 'c'}, star counts as: None>, ('TRANSITION NODE in 2 move seq', {'index': 13, 'char_val': 'a'}), <Node {'index': 14, 'char_val': 'b'}, star counts as: None>, <Node {'index': 15, 'char_val': 'c'}, star counts as: None>] 
+		 Path Cost 9
 #########################################################################################
 	[SOLVING mazeE]
-		timed @ 0.20598101615905762
-		Length of solution 25 
-		Total Numer of States Visited 81 
-		Solutions Locations [{'index': 7, 'char_val': '*'}, {'index': 6, 'char_val': 'c'}, {'index': 12, 'char_val': '*'}, {'index': 18, 'char_val': '*'}, {'index': 6, 'char_val': 'c'}, {'index': 12, 'char_val': '*'}, {'index': 18, 'char_val': '*'}, {'index': 19, 'char_val': 'a'}, {'index': 12, 'char_val': '*'}, {'index': 18, 'char_val': '*'}, {'index': 24, 'char_val': 'b'}, {'index': 31, 'char_val': '*'}, {'index': 30, 'char_val': 'a'}, {'index': 25, 'char_val': 'c'}, {'index': 31, 'char_val': '*'}, {'index': 32, 'char_val': '*'}, {'index': 27, 'char_val': '*'}, {'index': 26, 'char_val': 'b'}, {'index': 25, 'char_val': 'c'}, {'index': 32, 'char_val': '*'}, {'index': 26, 'char_val': 'b'}, {'index': 27, 'char_val': '*'}, {'index': 33, 'char_val': 'a'}, {'index': 28, 'char_val': '*'}, {'index': 35, 'char_val': 'c'}] 
+		timed @ 0.003757953643798828
+		Length of solution 9 
+		Total Numer of States Visited 15 
+		Solutions Locations [('TRANSITION NODE in 2 move seq', {'index': 1, 'char_val': '*'}), <Node {'index': 7, 'char_val': '*'}, star counts as: c>, ('TRANSITION NODE in 2 move seq', {'index': 8, 'char_val': '*'}), <Node {'index': 14, 'char_val': 'b'}, star counts as: None>, <Node {'index': 15, 'char_val': 'c'}, star counts as: None>, ('TRANSITION NODE in 2 move seq', {'index': 21, 'char_val': 'a'}), <Node {'index': 22, 'char_val': 'b'}, star counts as: None>, <Node {'index': 23, 'char_val': 'c'}, star counts as: None>, ('TRANSITION NODE in 2 move seq', {'index': 29, 'char_val': '*'}), <Node {'index': 28, 'char_val': '*'}, star counts as: b>, <Node {'index': 29, 'char_val': '*'}, star counts as: c>, ('TRANSITION NODE in 2 move seq', {'index': 28, 'char_val': '*'}), <Node {'index': 34, 'char_val': 'b'}, star counts as: None>, <Node {'index': 35, 'char_val': 'c'}, star counts as: None>] 
+		 Path Cost 20
 #########################################################################################
-[PROCESSING ALGORITHM] uniform_cost_search
+[PROCESSING ALGORITHM] astar_search
 #################################################################################
 	[SOLVING mazeA]
-		timed @ 1.5936508178710938
-		Length of solution 7 
-		Total Numer of States Visited 487 
-		Solutions Locations [{'index': 7, 'char_val': '*'}, {'index': 9, 'char_val': '*'}, {'index': 16, 'char_val': 'c'}, {'index': 17, 'char_val': '*'}, {'index': 29, 'char_val': '*'}, {'index': 28, 'char_val': '*'}, {'index': 35, 'char_val': 'c'}] 
+		timed @ 0.1147158145904541
+		Length of solution 13 
+		Total Numer of States Visited 158 
+		Solutions Locations [<Node {'index': 1, 'char_val': '*'}, star counts as: b>, ('TRANSITION NODE in 2 move seq', {'index': 7, 'char_val': '*'}), <Node {'index': 8, 'char_val': '*'}, star counts as: a>, <Node {'index': 7, 'char_val': '*'}, star counts as: b>, <Node {'index': 6, 'char_val': 'c'}, star counts as: None>, <Node {'index': 12, 'char_val': '*'}, star counts as: a>, <Node {'index': 18, 'char_val': '*'}, star counts as: b>, <Node {'index': 24, 'char_val': 'c'}, star counts as: None>, <Node {'index': 25, 'char_val': '*'}, star counts as: a>, <Node {'index': 26, 'char_val': 'b'}, star counts as: None>, <Node {'index': 27, 'char_val': '*'}, star counts as: c>, <Node {'index': 28, 'char_val': '*'}, star counts as: a>, <Node {'index': 29, 'char_val': '*'}, star counts as: b>, <Node {'index': 35, 'char_val': 'c'}, star counts as: None>] 
+		 Path Cost 16
 #########################################################################################
 	[SOLVING mazeB]
-		timed @ 0.006663084030151367
-		Length of solution 3 
-		Total Numer of States Visited 9 
-		Solutions Locations [{'index': 2, 'char_val': 'c'}, {'index': 10, 'char_val': '*'}, {'index': 15, 'char_val': 'c'}] 
+		timed @ 0.0070989131927490234
+		Length of solution 7 
+		Total Numer of States Visited 25 
+		Solutions Locations [('TRANSITION NODE in 2 move seq', {'index': 1, 'char_val': 'b'}), <Node {'index': 2, 'char_val': 'c'}, star counts as: None>, <Node {'index': 6, 'char_val': '*'}, star counts as: a>, <Node {'index': 5, 'char_val': 'b'}, star counts as: None>, <Node {'index': 9, 'char_val': 'c'}, star counts as: None>, <Node {'index': 10, 'char_val': '*'}, star counts as: a>, <Node {'index': 11, 'char_val': '*'}, star counts as: b>, <Node {'index': 15, 'char_val': 'c'}, star counts as: None>] 
+		 Path Cost 8
 #########################################################################################
 	[SOLVING mazeC]
-		timed @ 0.08989119529724121
-		Length of solution 4 
-		Total Numer of States Visited 54 
-		Solutions Locations [{'index': 2, 'char_val': '*'}, {'index': 6, 'char_val': '*'}, {'index': 10, 'char_val': '*'}, {'index': 15, 'char_val': 'c'}] 
+		timed @ 0.01795506477355957
+		Length of solution 8 
+		Total Numer of States Visited 31 
+		Solutions Locations [<Node {'index': 1, 'char_val': '*'}, star counts as: b>, <Node {'index': 2, 'char_val': '*'}, star counts as: c>, <Node {'index': 3, 'char_val': '*'}, star counts as: a>, <Node {'index': 7, 'char_val': '*'}, star counts as: b>, <Node {'index': 6, 'char_val': '*'}, star counts as: c>, <Node {'index': 10, 'char_val': '*'}, star counts as: a>, <Node {'index': 11, 'char_val': '*'}, star counts as: b>, <Node {'index': 15, 'char_val': 'c'}, star counts as: None>] 
+		 Path Cost 8
 #########################################################################################
 	[SOLVING mazeD]
-		timed @ 0.015958070755004883
-		Length of solution 3 
-		Total Numer of States Visited 21 
-		Solutions Locations [{'index': 5, 'char_val': 'c'}, {'index': 10, 'char_val': 'b'}, {'index': 15, 'char_val': 'c'}] 
+		timed @ 0.006453990936279297
+		Length of solution 6 
+		Total Numer of States Visited 33 
+		Solutions Locations [<Node {'index': 1, 'char_val': 'b'}, star counts as: None>, <Node {'index': 2, 'char_val': '*'}, star counts as: c>, <Node {'index': 6, 'char_val': 'a'}, star counts as: None>, ('TRANSITION NODE in 2 move seq', {'index': 10, 'char_val': 'b'}), <Node {'index': 9, 'char_val': 'c'}, star counts as: None>, <Node {'index': 13, 'char_val': 'a'}, star counts as: None>, ('TRANSITION NODE in 2 move seq', {'index': 14, 'char_val': 'b'}), <Node {'index': 15, 'char_val': 'c'}, star counts as: None>] 
+		 Path Cost 8
 #########################################################################################
 	[SOLVING mazeE]
-		timed @ 0.9622070789337158
-		Length of solution 6 
-		Total Numer of States Visited 364 
-		Solutions Locations [{'index': 7, 'char_val': '*'}, {'index': 8, 'char_val': '*'}, {'index': 15, 'char_val': 'c'}, {'index': 22, 'char_val': 'b'}, {'index': 28, 'char_val': '*'}, {'index': 35, 'char_val': 'c'}] 
+		timed @ 0.12475180625915527
+		Length of solution 12 
+		Total Numer of States Visited 154 
+		Solutions Locations [<Node {'index': 1, 'char_val': '*'}, star counts as: b>, <Node {'index': 7, 'char_val': '*'}, star counts as: c>, <Node {'index': 8, 'char_val': '*'}, star counts as: a>, <Node {'index': 14, 'char_val': 'b'}, star counts as: None>, <Node {'index': 15, 'char_val': 'c'}, star counts as: None>, ('TRANSITION NODE in 2 move seq', {'index': 21, 'char_val': 'a'}), <Node {'index': 22, 'char_val': 'b'}, star counts as: None>, <Node {'index': 28, 'char_val': '*'}, star counts as: c>, <Node {'index': 27, 'char_val': '*'}, star counts as: a>, <Node {'index': 26, 'char_val': 'b'}, star counts as: None>, <Node {'index': 32, 'char_val': '*'}, star counts as: c>, ('TRANSITION NODE in 2 move seq', {'index': 33, 'char_val': 'a'}), <Node {'index': 34, 'char_val': 'b'}, star counts as: None>, <Node {'index': 35, 'char_val': 'c'}, star counts as: None>] 
+		 Path Cost 14
 #########################################################################################
-[PROCESSING ALGORITHM] iterative_deepening_search
+[PROCESSING ALGORITHM] hill_climbing
 #################################################################################
 	[SOLVING mazeA]
-		timed @ 1.007033109664917
-		Length of solution 7 
-		Total Numer of States Visited 0 
-		Solutions Locations [{'index': 1, 'char_val': '*'}, {'index': 6, 'char_val': 'c'}, {'index': 18, 'char_val': '*'}, {'index': 25, 'char_val': '*'}, {'index': 27, 'char_val': '*'}, {'index': 29, 'char_val': '*'}, {'index': 35, 'char_val': 'c'}] 
+		timed @ 0.007241964340209961
+		Length of solution 0 
+		Total Numer of States Visited None 
+		Solutions Locations [] 
+		 Path Cost 0
 #########################################################################################
 	[SOLVING mazeB]
-		timed @ 0.005010843276977539
-		Length of solution 3 
-		Total Numer of States Visited 0 
-		Solutions Locations [{'index': 2, 'char_val': 'c'}, {'index': 10, 'char_val': '*'}, {'index': 15, 'char_val': 'c'}] 
+		timed @ 0.0050868988037109375
+		Length of solution 0 
+		Total Numer of States Visited None 
+		Solutions Locations [] 
+		 Path Cost 0
 #########################################################################################
 	[SOLVING mazeC]
-		timed @ 0.014317035675048828
-		Length of solution 4 
-		Total Numer of States Visited 0 
-		Solutions Locations [{'index': 2, 'char_val': '*'}, {'index': 3, 'char_val': '*'}, {'index': 11, 'char_val': '*'}, {'index': 15, 'char_val': 'c'}] 
+		timed @ 0.0005424022674560547
+		Length of solution 0 
+		Total Numer of States Visited None 
+		Solutions Locations [] 
+		 Path Cost 0
 #########################################################################################
 	[SOLVING mazeD]
-		timed @ 0.00841212272644043
-		Length of solution 3 
-		Total Numer of States Visited 0 
-		Solutions Locations [{'index': 5, 'char_val': 'c'}, {'index': 7, 'char_val': 'b'}, {'index': 15, 'char_val': 'c'}] 
+		timed @ 0.0017821788787841797
+		Length of solution 0 
+		Total Numer of States Visited None 
+		Solutions Locations [] 
+		 Path Cost 0
 #########################################################################################
 	[SOLVING mazeE]
-		timed @ 0.7581419944763184
-		Length of solution 6 
-		Total Numer of States Visited 0 
-		Solutions Locations [{'index': 7, 'char_val': '*'}, {'index': 8, 'char_val': '*'}, {'index': 15, 'char_val': 'c'}, {'index': 27, 'char_val': '*'}, {'index': 28, 'char_val': '*'}, {'index': 35, 'char_val': 'c'}] 
+		timed @ 0.002646207809448242
+		Length of solution 0 
+		Total Numer of States Visited None 
+		Solutions Locations [] 
+		 Path Cost 0
 #########################################################################################

@@ -3,6 +3,7 @@ from collections import namedtuple
 from itertools import cycle
 from homework1.maze import SequenceMaze, Node
 from homework1.mazes import mazes_to_test
+from random import choice
 
 
 
@@ -45,68 +46,6 @@ input = (6, [
              'a', '*', '*', 'c', 'a', 'c'
 ])
 
-state = {'index':6, 'char_val':'b'}
-self.dim_val = 6
-self.maze_char_list = input[1]
+dim_val = 6
+print(choice(list(range(dim_val*dim_val))))
 
-
-possible_actions = ('up','down','right', 'left', '2up', '2dwn', '2lft', '2rt', '1up1lft', '1up1rt', '1lft1up',
-                    '1rt1up', '1dwn1lft', '1dwn1rt', '1rt1dwn', '1lft1dwn')
-
-valid_move_seqs = {'ab', 'a*', 'bc', 'b*', 'ca', 'c*', 'abc','a**','ab*', 'a*c' 'bca','b**','bc*','b*c', 'cab','c**', 'ca*', 'c*b'}
-
-# 'abc','a**','ab*', 'a*c' 'bca','b**','bc*','b*c', 'cab','c**', 'ca*', 'c*b'
-
-# map of 2 moves to get middle (using problem result)
-middle_map = {'2up':'up', '2dwn':'down', '2lft':'left', '2rt':'right', '1up1lft':'up', '1up1rt':'up', '1lft1up':'left',
-                    '1rt1up':'right', '1dwn1lft':'down', '1dwn1rt':'down', '1rt1dwn':'right', '1lft1dwn':'left'}
-
-
-def _get_valid_index(state, action):
-    """
-    helper method to retrieve valid index
-    return valid index or None
-    """
-    cur_state_i = state['index']
-    if action == 'up':
-        res_i = cur_state_i - self.dim_val if cur_state_i - self.dim_val >= 0 else None
-    elif action == 'down':
-        res_i = cur_state_i + self.dim_val if cur_state_i + self.dim_val < len(self.maze_char_list) else None
-    elif action == 'left':
-        res_i = cur_state_i - 1 if cur_state_i % self.dim_val != 0 else None
-    elif action == 'right':
-        res_i = cur_state_i + 1 if cur_state_i % self.dim_val != self.dim_val - 1 else None
-    elif action == '2up':
-        res_i = (cur_state_i - self.dim_val)-self.dim_val if (cur_state_i - self.dim_val) - self.dim_val >= 0 else None
-    elif action == '2dwn':
-        res_i = (cur_state_i + self.dim_val) + self.dim_val if (cur_state_i + self.dim_val) + self.dim_val < len(self.maze_char_list) else None
-    elif action == '2lft':
-        res_i = cur_state_i - 2 if (cur_state_i -1) % self.dim_val != 0 and cur_state_i % self.dim_val != 0  else None
-    elif action == '2rt':
-        res_i = cur_state_i + 2 if (cur_state_i+1) % self.dim_val != self.dim_val - 1 and cur_state_i % self.dim_val != self.dim_val - 1 else None
-    elif action == '1up1lft':
-        res_i = (cur_state_i - self.dim_val) - 1 if cur_state_i - self.dim_val > 0 and cur_state_i % self.dim_val != 0 else None
-    elif action == '1up1rt':
-        res_i = (cur_state_i - self.dim_val) + 1 if cur_state_i - self.dim_val >= 0 and cur_state_i % self.dim_val != self.dim_val - 1 else None
-    elif action == '1lft1up':
-        res_i = (cur_state_i - self.dim_val) - 1 if cur_state_i - self.dim_val - 1 >= 0 and cur_state_i % self.dim_val != 0 else None
-    elif action == '1rt1up':
-        res_i = (cur_state_i - self.dim_val) + 1 if cur_state_i - self.dim_val > 0 and cur_state_i % self.dim_val != self.dim_val - 1 else None
-    elif action == '1dwn1lft':
-        res_i = (cur_state_i + self.dim_val) - 1 if cur_state_i + self.dim_val < len(self.maze_char_list) and cur_state_i % self.dim_val != 0 else None
-    elif action == '1dwn1rt':
-        res_i = (cur_state_i + self.dim_val) + 1 if cur_state_i + self.dim_val + 1 < len(self.maze_char_list) and cur_state_i % self.dim_val != self.dim_val - 1 else None
-    elif action == '1rt1dwn':
-        res_i = (cur_state_i + self.dim_val) + 1 if cur_state_i + self.dim_val + 1 < len(self.maze_char_list) and cur_state_i % self.dim_val != self.dim_val - 1 else None
-    elif action == '1lft1dwn':
-        res_i = (cur_state_i + self.dim_val) - 1 if cur_state_i + self.dim_val < len(self.maze_char_list) and cur_state_i % self.dim_val != 0 else None
-
-    else:
-        raise ValueError(f'incorrect action {action} passed to Maze Sequence.result() must be up, down, right, or left')
-
-    return res_i
-
-for act in possible_actions:
-    i = _get_valid_index(state, act)
-    print('FOR ACTION\n', act)
-    print(f'index: {i} char val:{input[1][i] if i is not None else None} action:{act}')
