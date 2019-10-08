@@ -32,7 +32,7 @@ if __name__ == '__main__':
     vals = list([ [],[],[],[], [], [] ]) # algo,maze length, sol_length, num_states visited, time to execute
     res_str = """"""
     res_str +='\n#########################################################################################'
-    h = euclidean_distance
+    h = manhatten_distance
     for algo in INFORMED_SEARCH_ALGORITHMS:
         res_str += f'\n[PROCESSING ALGORITHM] {algo.__name__}'
         res_str +='\n#################################################################################'
