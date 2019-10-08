@@ -38,19 +38,14 @@ def breadth_first_search(problem):
     frontier = deque([node])
     while frontier:
         node = frontier.popleft()
-        print(f'expanding {node}')
-        print(f'expanded nodes parent is {node.parent}')
         # a putzy work around since state is a dictionary
         explored.add(node_to_tuple(node))
         children = node.expand(problem)
-        print(f'children are {children}')
         for child in children:
             if node_to_tuple(child) not in explored and child not in frontier:
                 if problem.goal_test(child.state):
                     return child.depth, len(explored), child.solution()
                 frontier.append(child)
-        print(f'frontier after membership checks {frontier}')
-        print(f'explored after membership testing {explored}')
     return  None, None, None
 
 @algo_wrangler

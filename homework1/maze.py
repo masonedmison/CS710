@@ -57,9 +57,15 @@ class MazeProblem(object):
 class SequenceMaze(MazeProblem):
 
     # a set of valid actions for Part 1
-    valid_move_seqs = {'ab', 'a*', 'bc', 'b*', 'ca', 'c*', 'a*b', 'b*c', 'c*a'}
-    possible_actions = ('up', 'down', 'right', 'left', '2up', '2dwn', '2lft', '2rt', '1up1lft', '1up1rt', '1lft1up',
-                        '1rt1up', '1dwn1lft', '1dwn1rt', '1rt1dwn', '1lft1dwn')
+    # valid_move_seqs = {'ab', 'a*', 'bc', 'b*', 'ca', 'c*', 'a*b', 'b*c', 'c*a'}
+    valid_move_seqs = {'ab', 'a*', 'bc', 'b*', 'ca', 'c*', 'abc', 'a**', 'ab*', 'a*c' 'bca', 'b**', 'bc*', 'b*a', 'cab',
+                       'c**', 'ca*', 'c*b'}
+    # possible actions with 2 move added
+    possible_actions = {'up', 'down', 'right', 'left', '2up', '2dwn', '2lft', '2rt', '1up1lft', '1up1rt', '1lft1up',
+                        '1rt1up', '1dwn1lft', '1dwn1rt', '1rt1dwn', '1lft1dwn'}
+    # map of 2 moves to get middle - to be used by self.result
+    middle_map = {'2up': 'up', '2dwn': 'down', '2lft': 'left', '2rt': 'right', '1up1lft': 'up', '1up1rt': 'up',
+                  '1lft1up': 'left','1rt1up': 'right', '1dwn1lft': 'down', '1dwn1rt': 'down', '1rt1dwn': 'right', '1lft1dwn': 'left'}
 
     def __init__(self, maze_dim_tuple):
         # unpack tuple values to dim and char list
@@ -94,23 +100,35 @@ class SequenceMaze(MazeProblem):
                 pow(dim_val,2)  == len(char_list)
                  )
 
+    def get_middle_val(self, state, action):
+        middle_val_state = self.result(state, self.middle_map[action])
+        return middle_val_state
+
     def actions(self, state, parent_i):
         """Return the actions that can be executed in the given
         state. The result would typically be a list, but if there are
         many actions, consider yielding them one at a time in an
         iterator, rather than building them all at once."""
         # get valid indexes -- where state is tuple(<index>, val)
+        def make_sequence_str():
+            if k in self.middle_map.keys():
+                middle_val = self.get_middle_val(state, k)['char_val']
+                return cur_val + middle_val + self.maze_char_list[index].strip()
+            else: # one step move
+                return cur_val + self.maze_char_list[index].strip()
 
         cur_val = state['char_val']
-        valid_indices = self._get_valid_indices(state, self.possible_actions)
+        valid_indices = self._get_valid_indices(state, self.possible_actions) # returns {<action>:index}
+
 
         valid_actions = list()
         # for every valid index check
         for k in valid_indices.keys():
             if valid_indices[k] is not None:
+
                 index = valid_indices[k]
-                # concat current state value and index value
-                move_sequence = cur_val + self.maze_char_list[index].strip()
+                # concat current state value and index value and middle_val if any
+                move_sequence = make_sequence_str()
                 if move_sequence in self.valid_move_seqs:
                     if parent_i == index:
                         continue
@@ -135,38 +153,41 @@ class SequenceMaze(MazeProblem):
         elif action == 'right':
             res_i = cur_state_i + 1 if cur_state_i % self.dim_val != self.dim_val - 1 else None
         elif action == '2up':
-            res_i = (cur_state_i - self.dim_val) - self.dim_val if (cur_state_i - self.dim_val) - self.dim_val >= 0 else None
+            res_i = (cur_state_i - self.dim_val) - self.dim_val if (
+                                                                               cur_state_i - self.dim_val) - self.dim_val >= 0 else None
         elif action == '2dwn':
             res_i = (cur_state_i + self.dim_val) + self.dim_val if (cur_state_i + self.dim_val) + self.dim_val < len(
                 self.maze_char_list) else None
         elif action == '2lft':
-            res_i = cur_state_i - 2 if (cur_state_i - 1) % self.dim_val != 0 else None
+            res_i = cur_state_i - 2 if (
+                                                   cur_state_i - 1) % self.dim_val != 0 and cur_state_i % self.dim_val != 0 else None
         elif action == '2rt':
-            res_i = cur_state_i + 2 if (cur_state_i + 1) % self.dim_val != self.dim_val - 1 else None
+            res_i = cur_state_i + 2 if (
+                                                   cur_state_i + 1) % self.dim_val != self.dim_val - 1 and cur_state_i % self.dim_val != self.dim_val - 1 else None
         elif action == '1up1lft':
             res_i = (
                                 cur_state_i - self.dim_val) - 1 if cur_state_i - self.dim_val > 0 and cur_state_i % self.dim_val != 0 else None
         elif action == '1up1rt':
             res_i = (
-                                cur_state_i - self.dim_val) + 1 if cur_state_i - self.dim_val > 0 and cur_state_i % self.dim_val != self.dim_val - 1 else None
+                                cur_state_i - self.dim_val) + 1 if cur_state_i - self.dim_val >= 0 and cur_state_i % self.dim_val != self.dim_val - 1 else None
         elif action == '1lft1up':
             res_i = (
-                                cur_state_i - self.dim_val) - 1 if cur_state_i - self.dim_val > 0 and cur_state_i % self.dim_val != 0 else None
+                                cur_state_i - self.dim_val) - 1 if cur_state_i - self.dim_val - 1 >= 0 and cur_state_i % self.dim_val != 0 else None
         elif action == '1rt1up':
             res_i = (
                                 cur_state_i - self.dim_val) + 1 if cur_state_i - self.dim_val > 0 and cur_state_i % self.dim_val != self.dim_val - 1 else None
         elif action == '1dwn1lft':
-            res_i = (
-                                cur_state_i + self.dim_val) - 1 if cur_state_i + self.dim_val > 0 and cur_state_i % self.dim_val != 0 else None
+            res_i = (cur_state_i + self.dim_val) - 1 if cur_state_i + self.dim_val < len(
+                self.maze_char_list) and cur_state_i % self.dim_val != 0 else None
         elif action == '1dwn1rt':
-            res_i = (
-                                cur_state_i + self.dim_val) + 1 if cur_state_i + self.dim_val > 0 and cur_state_i % self.dim_val != self.dim_val - 1 else None
+            res_i = (cur_state_i + self.dim_val) + 1 if cur_state_i + self.dim_val + 1 < len(
+                self.maze_char_list) and cur_state_i % self.dim_val != self.dim_val - 1 else None
         elif action == '1rt1dwn':
-            res_i = (
-                                cur_state_i + self.dim_val) + 1 if cur_state_i + self.dim_val > 0 and cur_state_i % self.dim_val != self.dim_val - 1 else None
+            res_i = (cur_state_i + self.dim_val) + 1 if cur_state_i + self.dim_val + 1 < len(
+                self.maze_char_list) and cur_state_i % self.dim_val != self.dim_val - 1 else None
         elif action == '1lft1dwn':
-            res_i = (
-                                cur_state_i + self.dim_val) - 1 if cur_state_i + self.dim_val > 0 and cur_state_i % self.dim_val != 0 else None
+            res_i = (cur_state_i + self.dim_val) - 1 if cur_state_i + self.dim_val < len(
+                self.maze_char_list) and cur_state_i % self.dim_val != 0 else None
 
         else:
             raise ValueError(
@@ -182,10 +203,7 @@ class SequenceMaze(MazeProblem):
         return {'index':res_i, 'char_val': self.maze_char_list[res_i]}
 
     def goal_test(self, state):
-        """Return True if the state is a goal. The default method compares the
-        state to self.goal or checks for state in self.goal if it is a
-        list, as specified in the constructor. Override this method if
-        checking against a single self.goal is not enough."""
+        """Return True if the state is a goal."""
         return state == self.goal
 
     def path_cost(self, c, state1, action, state2):
@@ -197,6 +215,7 @@ class SequenceMaze(MazeProblem):
         # if state char values are a,b,c the +1
         if state2['char_val'] == 'a' or 'b' or 'c':
             return c + 1
+
         else:
             c+2
 
@@ -210,55 +229,78 @@ class Node:
     an explanation of how the f and h values are handled. You will not need to
     subclass this class."""
     # to asssign star val to how is is being 'counted' or 'played'
-    star_char_sub = {'a':'b', 'b':'c', 'c':'a'}
-    def __init__(self, state, parent=None, action=None, path_cost=0, count_star_as=None):
+    single_star_char_sub = {'a': 'b', 'b': 'c', 'c': 'a'}
+    double_star_char_sub = {'a':'c', 'b':'a', 'c':'b'}
+    def __init__(self, state, parent=None, action=None, path_cost=0, count_star_as=None, mid_val_state=None):
         """Create a search tree Node, derived from a parent by an action."""
         self.state = state # {index: <array_index>, char_val:<char_val>}
-        self.count_star_as = count_star_as # for testing
+        self.count_star_as = count_star_as # kwarg for testing purposes
         self.parent = parent
-        if self.state['char_val'] == '*':
-            if self.parent.count_star_as is None:
-                self.count_star_as = self.star_char_sub[self.parent.state['char_val']]
-            else:
-                self.count_star_as = self.star_char_sub[self.parent.count_star_as]
+        self.mid_val_state = mid_val_state  # to hold transitional value for 2 step moves
         self.action = action
+        if self.state['char_val'] == '*':
+            self.count_star_as = self._set_count_star_as()
         self.path_cost = path_cost
         self.depth = 0
         if parent:
             self.depth = parent.depth + 1
 
     def __repr__(self):
-        return "<Node {},{}>".format(self.state, self.count_star_as)
+        return "<Node {}, star counts as: {}>".format(self.state, self.count_star_as)
 
     def __lt__(self, node):
         return self.path_cost < node.path_cost
+
+    def _set_count_star_as(self):
+        """helper to set char method so as to not clutter the __init__ method"""
+        star_map_type = self.double_star_char_sub if self.action in SequenceMaze.middle_map.keys() else self.single_star_char_sub
+        if self.parent.count_star_as is None:
+            count_star_as = star_map_type[self.parent.state['char_val']]
+        else:
+            count_star_as = star_map_type[self.parent.count_star_as]
+
+        return count_star_as
 
     def expand(self, problem):
         """List the nodes reachable in one step from this node."""
         tmp_state = self.state
         parent_i = self.parent.state['index'] if self.parent else -1
         if self.state['char_val'] == '*' and self.parent is not None:
-            # value is a,b, c, a*, b*, c*
-            # set state['char_val'] to new value use star char sub mapping
-            val_concat = self.count_star_as
+            # set value to count star as (or simply what the star counted as when it was used)
+            val_count_star_as = self.count_star_as
             # state used to check for valid moves - node state is not altered
-            tmp_state = {'index':self.state['index'], 'char_val':val_concat}
-
+            tmp_state = {'index':self.state['index'], 'char_val':val_count_star_as}
+        valid_actions = problem.actions(tmp_state, parent_i)
         return [self.child_node(problem, action)
-                for action in problem.actions(tmp_state, parent_i)]
+                for action in valid_actions]
 
     def child_node(self, problem, action):
         """[Figure 3.10]"""
+        middle_val = None
+        print('\n#########\naction', action)
+        if action in problem.middle_map.keys():
+            middle_val = problem.get_middle_val(self.state, action)
+            print('mid_val in child node', middle_val)
+            print('\n###############end')
         next_state = problem.result(self.state, action)
-        next_node = Node(next_state, self, action,
-                         problem.path_cost(self.path_cost, self.state,
-                                           action, next_state))
+
+        next_node = Node(next_state, parent=self, action=action,
+                         path_cost=problem.path_cost(self.path_cost, self.state,
+                                           action, next_state), mid_val_state=middle_val)
         return next_node
 
     def solution(self):
         """Return the sequence of actions to go from the root to this node."""
-        return [node.state for node in self.path()[1:]]
-        # return [node.action for node in self.path()[1:]]
+        # return [node.state for node in self.path()[1:]]
+        # include middle tile in solution seq
+        seq = []
+        for node in self.path()[1:]:
+            if node.mid_val_state is not None:
+                print('mid val in solution', node.mid_val_state)
+                seq.append(('TRANSITION NODE',node.mid_val_state))
+            seq.append(node)
+
+        return seq
 
     def path(self):
         """Return a list of nodes forming the path from the root to this node."""
@@ -281,6 +323,8 @@ class Node:
                 return False
             # else compare states
             parents_equal = self.parent.state == other.parent.state and self.parent.count_star_as == other.parent.count_star_as
+        else:
+            parents_equal = False
         return ( isinstance(other, Node) and self.state == other.state
                  and self.count_star_as == other.count_star_as and parents_equal
                 )
@@ -289,4 +333,3 @@ class Node:
         # return hash(tuple([*self.state.values(), self.count_star_as]))
         parent_hash = hash(self.parent.state.values()) + hash(self.parent.count_star_as) if self.parent is not None else 0
         return hash(self.state.values()) + hash(self.count_star_as) + parent_hash
-        #return hash(self.state.values()) +hash(self.count_star_as) + hash(self.parent)

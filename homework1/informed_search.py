@@ -56,7 +56,9 @@ def best_first_graph_search(problem, f):
 
 
 def greedy_search(problem, h = None):
-    pass
+    h = memoize(h or problem.h, 'h')
+    goal = problem.goal['index'] # get goal state index
+    return best_first_graph_search(problem, lambda n: h(n.state['index'], goal, problem.dim_val))
 
 def astar_search(problem, h = None):
     """A* search is best-first graph search with f(n) = g(n)+h(n).
