@@ -2,24 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="29f629be-7f74-4704-bc6c-26b2ea81c5e9" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/hw2/budgets.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hw2/data/ads.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hw2/data/magazine.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hw2/data/zoo_attr.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hw2/decision_tree.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hw2/driver.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hw2/feature_selection.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hw2/feature_selectionV2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hw2/genetic.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hw2/geneticV2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hw2/naive_bayes_learner.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hw2/udemy_feature_extract.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework1/informed_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework1/informed_search.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework1/maze.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework1/maze.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework1/seq_maze_res.txt" beforeDir="false" afterPath="$PROJECT_DIR$/homework1/seq_maze_res.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/isolate.py" beforeDir="false" afterPath="$PROJECT_DIR$/isolate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hw2/feature_selection.py" beforeDir="false" afterPath="$PROJECT_DIR$/hw2/feature_selection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hw2/genetic.py" beforeDir="false" afterPath="$PROJECT_DIR$/hw2/genetic.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hw2/udemy_feature_extract.py" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -45,8 +30,8 @@
       <file leaf-file-name="feature_selection.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hw2/feature_selection.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="87" column="36" selection-start-line="87" selection-start-column="36" selection-end-line="87" selection-end-column="36" />
+            <state relative-caret-position="541">
+              <caret line="149" column="35" selection-start-line="149" selection-start-column="35" selection-end-line="149" selection-end-column="35" />
               <folding>
                 <element signature="e#149#167#0" expanded="true" />
               </folding>
@@ -57,41 +42,11 @@
       <file leaf-file-name="genetic.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hw2/genetic.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="32" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
+            <state relative-caret-position="565">
+              <caret line="44" selection-start-line="44" selection-end-line="46" selection-end-column="36" />
               <folding>
                 <element signature="e#76#89#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="geneticV2.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hw2/geneticV2.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1317">
-              <caret line="99" selection-start-line="99" selection-end-line="108" selection-end-column="41" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fromnumeric.py" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/venv/CS710/lib/python3.7/site-packages/numpy/core/fromnumeric.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="89" selection-start-line="89" selection-end-line="89" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="utils.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="247" selection-start-line="247" selection-end-line="247" />
             </state>
           </provider>
         </entry>
@@ -420,7 +375,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/hw2/feature_selection.py</url>
-          <line>115</line>
+          <line>116</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
@@ -744,20 +699,6 @@
     <entry file="file://$PROJECT_DIR$/hw2/driver.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="247" selection-start-line="247" selection-end-line="247" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/venv/CS710/lib/python3.7/site-packages/numpy/core/fromnumeric.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="89" selection-start-line="89" selection-end-line="89" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/isolate.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="631">
@@ -778,10 +719,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/venv/CS710/lib/python3.7/site-packages/numpy/core/fromnumeric.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="89" selection-start-line="89" selection-end-line="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="247" selection-start-line="247" selection-end-line="247" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/hw2/genetic.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="32" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
+        <state relative-caret-position="565">
+          <caret line="44" selection-start-line="44" selection-end-line="46" selection-end-column="36" />
           <folding>
             <element signature="e#76#89#0" expanded="true" />
           </folding>
@@ -790,8 +745,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hw2/feature_selection.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="87" column="36" selection-start-line="87" selection-start-column="36" selection-end-line="87" selection-end-column="36" />
+        <state relative-caret-position="541">
+          <caret line="149" column="35" selection-start-line="149" selection-start-column="35" selection-end-line="149" selection-end-column="35" />
           <folding>
             <element signature="e#149#167#0" expanded="true" />
           </folding>
