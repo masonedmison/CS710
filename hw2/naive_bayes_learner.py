@@ -2,16 +2,11 @@
 import pandas as pd
 import numpy as np
 from collections import Counter, defaultdict
-from math import sqrt
-import numpy as np
-from collections import namedtuple
-from itertools import cycle
-from homework1.maze import SequenceMaze, Node
-from homework1.mazes import mazes_to_test
-from random import choice
-import operator
 from sklearn.tree import DecisionTreeClassifier
-
+from sklearn import tree
+from sklearn.metrics import accuracy_score
+from IPython.core.debugger import set_trace
+from graphviz import Source
 
 
 # print(one_right, one_left)
@@ -49,6 +44,14 @@ zoo2_train_features = zoo2_train.drop(col_shape-1, axis=1)
 zoo2_test = zoo2_df.iloc[test_indices,:]
 zoo2_test_labels = zoo2_test.iloc[:,col_shape-1]
 zoo2_test_features = zoo2_test.drop(col_shape-1, axis=1)
+
+# global numpy arrays to use for fitting and predicting
+Z1_train_features = zoo1_train_features.to_numpy()
+Z1_test_features = zoo1_test_features.to_numpy()
+
+Z2_train_features = zoo2_train_features.to_numpy()
+Z2_test_features = zoo2_test_features.to_numpy()
+
 
 
 class NaiveBayes:
