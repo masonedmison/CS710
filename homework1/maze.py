@@ -53,7 +53,6 @@ class MazeProblem(object):
 class SequenceMaze(MazeProblem):
 
     # a set of valid actions for Part 1
-    # valid_move_seqs = {'ab', 'a*', 'bc', 'b*', 'ca', 'c*', 'a*b', 'b*c', 'c*a'}
     valid_move_seqs = {'ab', 'a*', 'bc', 'b*', 'ca', 'c*', 'abc', 'a**', 'ab*', 'a*c' 'bca', 'b**', 'bc*', 'b*a', 'cab',
                        'c**', 'ca*', 'c*b'}
     # possible actions with 2 move added

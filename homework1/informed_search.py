@@ -17,10 +17,11 @@ def algo_wrangler(algo):
     INFORMED_SEARCH_ALGORITHMS.append(algo)
     return algo
 
+#####################################################
 # heuristic functions and helpers
 def _to_coordinate(state_index, depth):
     """take index of 1d list and convert it to a coordinate"""
-    return int(state_index / 6), state_index % depth
+    return int(state_index / depth), state_index % depth
 
 
 def manhatten_distance(state_indexA, state_indexB, dim):
@@ -78,14 +79,13 @@ def astar_search(problem, h):
 @algo_wrangler
 def hill_climbing(problem, h, rand_cur=None):
     """From the initial node, keep choosing the neighbor with highest value,
-    stopping when no neighbor is better. [Figure 4.2]"""
+    stopping when no neighbor is better. """
     if rand_cur is None:
         current = Node(problem.initial)
     else:
         current=rand_cur
     goal = problem.goal['index'] # goal index
     # path plus hueristic function
-    # path_plus_h = lambda node: node.path_cost + h(node.state['index'], goal, problem.dim_val)
     h_lam = lambda node: h(node.state['index'], goal, problem.dim_val)
     while True:
         if h_lam(current) == h_lam(Node(problem.goal)):
@@ -93,14 +93,13 @@ def hill_climbing(problem, h, rand_cur=None):
         neighbors = current.expand(problem)
         if not neighbors:
             break
-        neighbor = argmax_random_tie(neighbors, key=h_lam)
+        neighbor = argmin_random_tie(neighbors, key=h_lam)
         if h_lam(neighbor) <= h_lam(current):
             break
         current = neighbor
     if not problem.goal_test(current.state):
         rand_i = choice(list(range(problem.dim_val*problem.dim_val)))
         rand_state= dict(index=rand_i, char_val=problem.maze_char_list[rand_i])
-        print(f'new node generated at {rand_state}')
         hill_climbing(problem,h , rand_cur=Node(rand_state))
     return current.depth, None, current.solution(), current.path_cost
 

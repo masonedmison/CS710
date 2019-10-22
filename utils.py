@@ -18,6 +18,16 @@ from itertools import chain, combinations
 # ______________________________________________________________________________
 # Functions on Sequences and Iterables
 
+def remove_all(item, seq):
+    """Return a copy of seq (or string) with all occurrences of item removed."""
+    if isinstance(seq, str):
+        return seq.replace(item, '')
+    elif isinstance(seq, set):
+        rest = seq.copy()
+        rest.remove(item)
+        return rest
+    else:
+        return [x for x in seq if x != item]
 
 def sequence(iterable):
     """Converts iterable to sequence, if it is not already one."""
@@ -234,6 +244,7 @@ def weighted_sample_with_replacement(n, seq, weights):
     sample = weighted_sampler(seq, weights)
 
     return [sample() for _ in range(n)]
+
 
 
 def weighted_sampler(seq, weights):
