@@ -1,0 +1,55 @@
+\documentclass[11pt]{article}
+\usepackage[margin = 1in]{geometry}
+\usepackage[none]{hyphenat}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{float}
+
+
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\fancyhead[L]{\slshape \MakeUppercase{Homework 2}}
+\fancyhead[R]{\slshape Mason Edmison}
+\fancyfoot[C]{\thepage}
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+\Large{\textbf{CS 710 - Artificial Intelligence}} \\
+\vfill
+\line(1,0){400} \\
+\huge{\textbf{Homework 2}} \\
+\Large{\textbf{Optimization and Classification}} \\
+\line(1,0){400}\\
+\vfill
+Mason Edmison\\
+University of Wisconsin-Milwaukee\\
+10/22/2019
+\end{center}
+\end{titlepage}
+
+\section{Question 1}
+\subsection{}
+Question 1a
+
+Represent the following logic puzzle in First Order Logic using the predicates $Guilty(x)$ and $OutOfTown(x)$.  Then, provide a FOL resolution proof using answer extraction to determine who the guilty person is. Note that, with answer extraction,  unlike a normal refutation proof, you do NOT assert that Chloe is not guilty and find a contradiction! Instead, you assert $$\lnot Guilty(x) \lor Answer(x)$$, and create a proof that derives [$Answer(PERSON)]$ where $PERSON$ is the name of the guilty person.  Also, since non-guilty suspects tell the truth, their testimony can be represented by implications, for example, "Anne tells the police that Betty is innocent" can be represented as $$\lnot Guilty(A) \Rightarrow  \lnot Guilty(B)$$
+
+The suspects in a robbery are Anne, Betty, and Chloe.
+Exactly one of the suspects is guilty.
+When questioned, a guilty suspect might lie or tell the truth, but an innocent one always tells the truth.
+Anne tells the police that Betty is innocent.
+Betty tells them that she was out of town the day the robbery occurred.
+Chloe says that Betty was in town the day of the robbery.
+If a suspect is out of town the day of the robbery, then she must be innocent.
+
+\subsection{}
+
+
+\section{Files of interest in this directory}
+\begin{itemize}
+\item \texttt{example.py} - Run for budget optimization - uses GA implementation listed below
+
+\end{itemize}
+\end{document}
