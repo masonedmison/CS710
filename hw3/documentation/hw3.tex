@@ -4,12 +4,12 @@
 \usepackage{fancyhdr}
 \usepackage{graphicx}
 \usepackage{float}
-
+\usepackage{amsmath}
 
 \pagestyle{fancy}
 \fancyhead{}
 \fancyfoot{}
-\fancyhead[L]{\slshape \MakeUppercase{Homework 2}}
+\fancyhead[L]{\slshape \MakeUppercase{Homework 3}}
 \fancyhead[R]{\slshape Mason Edmison}
 \fancyfoot[C]{\thepage}
 
@@ -20,19 +20,20 @@
 \Large{\textbf{CS 710 - Artificial Intelligence}} \\
 \vfill
 \line(1,0){400} \\
-\huge{\textbf{Homework 2}} \\
-\Large{\textbf{Optimization and Classification}} \\
+\huge{\textbf{Homework 3}} \\
+\Large{\textbf{Logics and Logics Programming}} \\
 \line(1,0){400}\\
 \vfill
 Mason Edmison\\
 University of Wisconsin-Milwaukee\\
-10/22/2019
+11/22/2019
 \end{center}
 \end{titlepage}
 
 \section{Question 1}
 \subsection{}
-Question 1a
+\begin{quote}
+Question 1a:
 
 Represent the following logic puzzle in First Order Logic using the predicates $Guilty(x)$ and $OutOfTown(x)$.  Then, provide a FOL resolution proof using answer extraction to determine who the guilty person is. Note that, with answer extraction,  unlike a normal refutation proof, you do NOT assert that Chloe is not guilty and find a contradiction! Instead, you assert $$\lnot Guilty(x) \lor Answer(x)$$, and create a proof that derives [$Answer(PERSON)]$ where $PERSON$ is the name of the guilty person.  Also, since non-guilty suspects tell the truth, their testimony can be represented by implications, for example, "Anne tells the police that Betty is innocent" can be represented as $$\lnot Guilty(A) \Rightarrow  \lnot Guilty(B)$$
 
@@ -43,9 +44,183 @@ Anne tells the police that Betty is innocent.
 Betty tells them that she was out of town the day the robbery occurred.
 Chloe says that Betty was in town the day of the robbery.
 If a suspect is out of town the day of the robbery, then she must be innocent.
+\end{quote}
+
+\large \textbf{Facts}
+\begin{align}
+Suspect(Anne) \\
+Suspect(Betty) \\
+Suspect(Chloe) \\
+\exists y(\forall x(Guilty(x) \Leftrightarrow x=y)) \\ 
+TellsTruth(x) \lor TellsLies(x) \Leftrightarrow Guilty(x) \\
+\lnot Guilty(x) \Rightarrow TellsTruth(x) \\
+Suspect(Anne) \land TellsPolice(Anne) \land \lnot Guilty(Anne) \Rightarrow Innocent(Betty) \\ 
+Suspect(Betty) \land TellsPolice(Chloe) \land \lnot Guilty(Betty) \Rightarrow OutOfTown(Betty) \\  
+Suspect(Chloe) \land TellsPolice(Chloe) \land \lnot Guilty(Chloe) \Rightarrow \lnot OutOfTown(Betty) \\  
+Suspect(x) \land OutOfTown(x) \Rightarrow \lnot Guilty(x)
+\end{align}
+
+\large \textbf{Facts in CNF}
+\begin{align}
+Suspect(Anne) \\
+Suspect(Betty) \\
+Suspect(Chloe) \\ 
+\lnot TellsTruth(x) \land \lnot TellsLies(x) \lor Guilty(x) \\ 
+Guilty(x) \lor TellsTruth(x) \\ 
+\lnot Suspect(Anne) \lor \lnot TellsPolice(Anne) \lor Guilty(Anne) \lor Innocent(Betty) \\
+\lnot Suspect(Betty) \lor \lnot TellsPolice(Betty) \lor Guilty(Betty)  \lor OutOfTown(Betty) \\
+\lnot Suspect(Chloe) \lor \lnot TellsPolice(Chloe) \lor Guilty(Chloe) \lor \lnot OutOfTown(Betty) \\
+\lnot Suspect(x) \lor \lnot OutOfTown(x) \lor Innocent(x)
+\end{align}
+
+\textbf{Proof - Find who is guilty}
+
+Using Answer Extraction find $\lnot Guilty(x) \lor Answer(x)$
+
+
 
 \subsection{}
+\begin{quote}
+Question 1b:
 
+Try to express and solve this same puzzle as a Prolog program (similar to the minizebra) example. Provide your code and include a log or screencast of what happens when you run the program. In your report, discuss the main differences in the two types of representations and any difficulties you encountered.
+CLARIFICATION: You do not have to use the same predicates - since negation is to be avoided in Prolog.
+
+For example  "Anne tells the police that Betty is innocent"  can be restated as : If Anne is innocent then Betty is innocent.
+\end{quote}
+
+\section{Question 2}
+\textbf{Knowledge Base Stuff} 
+Note, the KB makes use of the following roles:
+
+\begin{itemize}
+    \item[] has-part
+    \item[] is-part-of the inverse of has-part; they are both transitive
+    \item[] manages
+    \item[] is-managed-by (the inverse of manages)
+    \item[] employs
+    \item[] is-employed-by (the inverse of employs)
+\end{itemize}
+
+\noindent\textbf{Properties:}
+\begin{itemize}
+    \item[a.] An enterprise is managed by someone and employs someone.
+    \item[b.] A department is a part of an enterprise.
+    \item[c.] An office is a part of a department.
+    \item[d.] If someone manages some entity then he is an employee.
+\end{itemize} 
+
+\noindent\textbf{Definitions:}
+
+\begin{itemize}
+    \item[e.] The departments are exactly: Production, Research, Ad
+ministration, Trade, HumanResources, and PublicRelations.
+\item[f.] An employee is someone who is employed by an enterprise or by some part of an enterprise.
+\item[g.] An administrative-employee is someone who is employed by an administration department or by some part of an administration department.
+\item[h.] A high-tech enterprise is an enterprise which has a research department.
+\item[i.] An industrial enterprise is an enterprise which has a production department and has at least 100 employees.
+\item[j.] A small enterprise is an enterprise which employs at most 20 employees.
+\item[k.] A big enterprise is an enterprise which employs at least 80 employees.
+\item[l.] A family-based enterprise is an enterprise with at most 4 employees.
+\item[m.] A top manager is someone who manages a big enterprise.
+\item[n.] A manager is someone who manages a department.
+\item[o.] A boss is someone who manages an office.
+\end{itemize}
+
+\noindent\textbf{Facts (assertions):}
+\begin{itemize}
+    \item[p.] Alcatel is an enterprise which has 2000 employees.
+    \item[q.] Alcatel has a research department RD1, an administratio
+    \item[n.] department AD1, and a HumanResources department HRD1; it has also a production department
+    \item[r.] OFF1 and OFF2 are offices and are part of RD1.
+    \item[s.] OFF3 and OFF4 are offices and are part of AD1.
+    \item[t.] Joe and Anne are employed by OFF3.
+    \item[u.] Jim manages the department AD3.
+    \item[v.] Bob manages OFF3.
+    \item[w.] Jim manages Alcatel.
+    \item[x.] SmithBrothers is a family-based enterprise.
+    \item[y.] Frank, Lea, Dave, Kate, Dino are employed by SmithBrothers.
+\end{itemize}
+
+\subsection{}
+Question 2a:
+Represent Knowledge base as a prolog program.
+
+\subsection{}
+Question 2b:
+Represent Knowledge base as a set of Description logic expressions.
+
+\textbf{Properties}
+\begin{align*}
+	enterprise \rightarrow [EXISTS\ 1 :is-managed-by] \\
+	enterprise \rightarrow [EXISTS\ 1 :employs] \\
+	department \rightarrow[FILLS :is-a-part-of\ enterprise] \\
+	office \rightarrow [FILLS\ :is-a-part-of\ department] \\
+	employee \rightarrow [EXISTS\ 1 :manages]
+\end{align*}
+
+\textbf{Definitions}
+\begin{align*}
+Departments: \\
+Production \equiv department \\ 
+Research \equiv department \\
+Administration \equiv department \\
+Trade \equiv department \\
+HumanResources \equiv department \\
+PublicRelations \equiv department \\
+\\
+employee \equiv [SOME-OF\ :is-employed-by\ [UNION\ enterprise\\ 
+[ALL\ :is-part-of\ enterprise]]] \\
+\\
+admin-employee \equiv [SOME-OF\ :is-employed-by\\
+[UNION\ admin-department\ [ALL\ :is-part-of\ admin-department]]] \\ 
+\\
+hitech-ent \equiv [FILLS\ :has-part\ research-department] \\ 
+\\
+indust-ent \equiv [FILLS\ :has-part\ prod-department\\ 
+[EXISTS\ 100\ :employs] \\
+\\
+small-ent \equiv [AND\ enterprise\ [AT-MOST\ 20\ :employs]] \\
+\\
+big-ent \equiv [AND\ enterprise\ [EXISTS\ 80\ :employs]] \\
+\\
+fam-based-ent \equiv [AND\ enterprise\ [AT-MOST\ 4\ :employs]] \\
+\\
+top-manager \equiv [AND\ :manages\ [ONE-OF\ big-ent]] \\ 
+\\
+manager \equiv [AND\ [AT-LEAST\ 1\ :manages]\\ [ALL\ :manages\ departments]] \\ 
+\\
+boss \equiv [AND\ [AT-LEAST\ 1\ :manages]\ [ALL\ :manages\ office]] 
+\end{align*}
+\textbf{Facts(assertions):}
+\begin{align*}
+Alcatel \rightarrow [AND\ big-ent] \\
+Alcatel \rightarrow [FILLS :has-part\ [RD1,\ AD1,\ HRD1]] \\ 
+OFF1 \rightarrow [AND\ office\ [FILLS\ :is-part-of\ RD1]] \\
+OFF2 \rightarrow [AND \ office\ [FILLS\ :is-part-of\ RD1]] \\
+OFF3 \rightarrow [AND\ office [FILLS\ :is-part-of\ AD1]] \\
+OFF3 \rightarrow [AND\ office [FILLS\ :is-part-of\ AD1]] \\
+Joe \rightarrow [FILLS\ :is-employed-by\ OFF3] \\
+Anne \rightarrow [FILLS\ :is-employed-by\ OFF3] \\
+Jim \rightarrow [FILLS\ :manages\ AD3] \\ 
+Bob \rightarrow [FILLS\ :manages\ OFF3] \\
+Jim \rightarrow [FILLS\ :manages\ Alcatel] \\ 
+SmithBrothers \rightarrow [AND\ fam-based-ent] \\
+Frank \rightarrow [FILLS\ :is-employed-by\ SmithBrothers] \\ 
+Lea \rightarrow [FILLS\ :is-employed-by\ SmithBrothers] \\ 
+Dave \rightarrow [FILLS\ :is-employed-by\ SmithBrothers] \\ 
+Kate \rightarrow [FILLS\ :is-employed-by\ SmithBrothers] \\ 
+Dino \rightarrow [FILLS\ :is-employed-by\ SmithBrothers] 
+\end{align*}
+\subsection{}
+Question 2c:
+For each representation framework, provide at least 2 interesting conclusions that can be drawn from the KB (possibly the same for both frameworks.)
+
+\textbf{Description Logic}
+\begin{itemize}
+\item Given that SmithBrothers is an enterprise with 6 departments and only 4 employees, several employees must work in several departments.
+\item 
+\end{itemize}
 
 \section{Files of interest in this directory}
 \begin{itemize}
