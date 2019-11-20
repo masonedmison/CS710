@@ -33,9 +33,7 @@ University of Wisconsin-Milwaukee\\
 \section{Question 1}
 \subsection{}
 \begin{quote}
-Question 1a:
-
-Represent the following logic puzzle in First Order Logic using the predicates $Guilty(x)$ and $OutOfTown(x)$.  Then, provide a FOL resolution proof using answer extraction to determine who the guilty person is. Note that, with answer extraction,  unlike a normal refutation proof, you do NOT assert that Chloe is not guilty and find a contradiction! Instead, you assert $$\lnot Guilty(x) \lor Answer(x)$$, and create a proof that derives [$Answer(PERSON)]$ where $PERSON$ is the name of the guilty person.  Also, since non-guilty suspects tell the truth, their testimony can be represented by implications, for example, "Anne tells the police that Betty is innocent" can be represented as $$\lnot Guilty(A) \Rightarrow  \lnot Guilty(B)$$
+Question 1a: testing vimtex
 
 The suspects in a robbery are Anne, Betty, and Chloe.
 Exactly one of the suspects is guilty.
@@ -192,7 +190,9 @@ manager \equiv [AND\ [AT-LEAST\ 1\ :manages]\\ [ALL\ :manages\ departments]] \\
 \\
 boss \equiv [AND\ [AT-LEAST\ 1\ :manages]\ [ALL\ :manages\ office]] 
 \end{align*}
+
 \textbf{Facts(assertions):}
+
 \begin{align*}
 Alcatel \rightarrow [AND\ big-ent] \\
 Alcatel \rightarrow [FILLS :has-part\ [RD1,\ AD1,\ HRD1]] \\ 
@@ -212,6 +212,7 @@ Dave \rightarrow [FILLS\ :is-employed-by\ SmithBrothers] \\
 Kate \rightarrow [FILLS\ :is-employed-by\ SmithBrothers] \\ 
 Dino \rightarrow [FILLS\ :is-employed-by\ SmithBrothers] 
 \end{align*}
+
 \subsection{}
 Question 2c:
 For each representation framework, provide at least 2 interesting conclusions that can be drawn from the KB (possibly the same for both frameworks.)
@@ -219,12 +220,29 @@ For each representation framework, provide at least 2 interesting conclusions th
 \textbf{Description Logic}
 \begin{itemize}
 \item Given that SmithBrothers is an enterprise with 6 departments and only 4 employees, several employees must work in several departments.
-\item 
+\item Since Jim manages Alcatel and Alcatel is a big enterprise, Jim manages at least 100 employees. 
+    \end{itemize}
+
+\textbf{Prolog}
+\begin{itemize}
+    \item Joe and Anne are employees of Alcatel. 
+    \item Since Jim manages Alcatel and Alcatel is a big enterprise, Jim manages at least 100 empl         
+
 \end{itemize}
+
+\subsection{}
+\textbf{Contrast between description logic and prolog}
+
+In prolog, I found it difficult to not be able \textit{remember} values inferenced by clauses - instead I found I had to change my normal way of thinking and pass values as parameters to other clauses. \\ 
+
+I had a hard time wrapping my head around the description logic syntax. In my current internship, I regularly work with bio-medical ontologies in OWL and SKOSXL format and for some reason I had a difficult time transferring that knowledge to description logic. Once overcoming the syntax, I found it quite nice to work with; I especially liked being able to compartmentalize \textit{definitions}, \textit{roles}, and \textit{properties}. \\ 
+
+One thing that I found myself getting hung up on with both prolog and description logic was not defining certain predicates and properties, respectively. \\ 
 
 \section{Files of interest in this directory}
 \begin{itemize}
-\item \texttt{example.py} - Run for budget optimization - uses GA implementation listed below
+\item \texttt{suspects\_kb.pl} - Knowledge base  for question 1B 
+\item \texttt{ent\_kb.pl} - Knowledge for question 2B
 
 \end{itemize}
 \end{document}
