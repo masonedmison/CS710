@@ -33,7 +33,7 @@ University of Wisconsin-Milwaukee\\
 \section{Question 1}
 \subsection{}
 \begin{quote}
-Question 1a: testing vimtex
+    \textbf{Question 1a:} 
 
 The suspects in a robbery are Anne, Betty, and Chloe.
 Exactly one of the suspects is guilty.
@@ -46,29 +46,20 @@ If a suspect is out of town the day of the robbery, then she must be innocent.
 
 \large \textbf{Facts}
 \begin{align}
-Suspect(Anne) \\
-Suspect(Betty) \\
-Suspect(Chloe) \\
+\lnot OutOfTown(x) \land TellsTruth(x) \Rightarrow \lnot Guilty(x) \\
 \exists y(\forall x(Guilty(x) \Leftrightarrow x=y)) \\ 
-TellsTruth(x) \lor TellsLies(x) \Leftrightarrow Guilty(x) \\
-\lnot Guilty(x) \Rightarrow TellsTruth(x) \\
-Suspect(Anne) \land TellsPolice(Anne) \land \lnot Guilty(Anne) \Rightarrow Innocent(Betty) \\ 
-Suspect(Betty) \land TellsPolice(Chloe) \land \lnot Guilty(Betty) \Rightarrow OutOfTown(Betty) \\  
-Suspect(Chloe) \land TellsPolice(Chloe) \land \lnot Guilty(Chloe) \Rightarrow \lnot OutOfTown(Betty) \\  
-Suspect(x) \land OutOfTown(x) \Rightarrow \lnot Guilty(x)
+\lnot Guilty(Anne) \Rightarrow \lnot Guilty(Betty) \\ 
+\lnot Guilty(Betty) \Rightarrow OutOfTown(Betty) \\  
+\lnot Guilty(Chloe) \Rightarrow \lnot OutOfTown(Betty) \\  
+OutOfTown(x) \Rightarrow \lnot Guilty(x)
 \end{align}
 
 \large \textbf{Facts in CNF}
 \begin{align}
-Suspect(Anne) \\
-Suspect(Betty) \\
-Suspect(Chloe) \\ 
-\lnot TellsTruth(x) \land \lnot TellsLies(x) \lor Guilty(x) \\ 
-Guilty(x) \lor TellsTruth(x) \\ 
-\lnot Suspect(Anne) \lor \lnot TellsPolice(Anne) \lor Guilty(Anne) \lor Innocent(Betty) \\
-\lnot Suspect(Betty) \lor \lnot TellsPolice(Betty) \lor Guilty(Betty)  \lor OutOfTown(Betty) \\
-\lnot Suspect(Chloe) \lor \lnot TellsPolice(Chloe) \lor Guilty(Chloe) \lor \lnot OutOfTown(Betty) \\
-\lnot Suspect(x) \lor \lnot OutOfTown(x) \lor Innocent(x)
+Guilty(Anne) \lor \lnot Guilty(Betty) \\
+Guilty(Betty)  \lor OutOfTown(Betty) \\
+Guilty(Chloe) \lor \lnot OutOfTown(Betty) \\
+\lnot TellsTruth(x) \lor  OutOfTown(x) \lor \lnot Guilty(x)
 \end{align}
 
 \textbf{Proof - Find who is guilty}
@@ -79,7 +70,7 @@ Using Answer Extraction find $\lnot Guilty(x) \lor Answer(x)$
 
 \subsection{}
 \begin{quote}
-Question 1b:
+    \textbf{Question 1b:}
 
 Try to express and solve this same puzzle as a Prolog program (similar to the minizebra) example. Provide your code and include a log or screencast of what happens when you run the program. In your report, discuss the main differences in the two types of representations and any difficulties you encountered.
 CLARIFICATION: You do not have to use the same predicates - since negation is to be avoided in Prolog.
@@ -141,11 +132,11 @@ ministration, Trade, HumanResources, and PublicRelations.
 \end{itemize}
 
 \subsection{}
-Question 2a:
+\textbf{Question 2a:}
 Represent Knowledge base as a prolog program.
 
 \subsection{}
-Question 2b:
+\textbf{Question 2b:}
 Represent Knowledge base as a set of Description logic expressions.
 
 \textbf{Properties}
@@ -194,8 +185,8 @@ boss \equiv [AND\ [AT-LEAST\ 1\ :manages]\ [ALL\ :manages\ office]]
 \textbf{Facts(assertions):}
 
 \begin{align*}
-Alcatel \rightarrow [AND\ big-ent] \\
-Alcatel \rightarrow [FILLS :has-part\ [RD1,\ AD1,\ HRD1]] \\ 
+Alcatel \rightarrow [AND\ big-ent\ [EXISTS\ 2000\ :employs] \\
+Alcatel \rightarrow [FILLS :has-part\ [RD1,\ AD1,\ HRD1,\ [ONE-OF\ Production]] \\ 
 OFF1 \rightarrow [AND\ office\ [FILLS\ :is-part-of\ RD1]] \\
 OFF2 \rightarrow [AND \ office\ [FILLS\ :is-part-of\ RD1]] \\
 OFF3 \rightarrow [AND\ office [FILLS\ :is-part-of\ AD1]] \\
@@ -214,7 +205,7 @@ Dino \rightarrow [FILLS\ :is-employed-by\ SmithBrothers]
 \end{align*}
 
 \subsection{}
-Question 2c:
+\textbf{Question 2c:}
 For each representation framework, provide at least 2 interesting conclusions that can be drawn from the KB (possibly the same for both frameworks.)
 
 \textbf{Description Logic}
@@ -231,11 +222,11 @@ For each representation framework, provide at least 2 interesting conclusions th
 \end{itemize}
 
 \subsection{}
-\textbf{Contrast between description logic and prolog}
+\textbf{Contrast between description logic and prolog:}
 
 In prolog, I found it difficult to not be able \textit{remember} values inferenced by clauses - instead I found I had to change my normal way of thinking and pass values as parameters to other clauses. \\ 
 
-I had a hard time wrapping my head around the description logic syntax. In my current internship, I regularly work with bio-medical ontologies in OWL and SKOSXL format and for some reason I had a difficult time transferring that knowledge to description logic. Once overcoming the syntax, I found it quite nice to work with; I especially liked being able to compartmentalize \textit{definitions}, \textit{roles}, and \textit{properties}. \\ 
+I had a hard time wrapping my head around the description logic syntax. In my current internship, I regularly work with bio-medical ontologies in OWL and SKOSXL format and for some reason I had a difficult time transferring that knowledge to description logic. Once overcoming the syntax, I found it quite nice to work with; I especially liked being able to compartmentalize knowledge and facts as \textit{definitions}, \textit{roles}, and \textit{properties}. \\ 
 
 One thing that I found myself getting hung up on with both prolog and description logic was not defining certain predicates and properties, respectively. \\ 
 

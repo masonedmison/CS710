@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.10.27)  20 NOV 2019 13:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.10.27)  21 NOV 2019 09:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -242,7 +242,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 )) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (34.38583pt too wide) in paragraph at lines 84--86
+Overfull \hbox (34.38583pt too wide) in paragraph at lines 75--77
 \OT1/cmr/m/n/12 the two types of rep-re-sen-ta-tions and any dif-fi-cul-ties you en-coun-tered. CLAR-I-FI-CA-TION:
  []
 
@@ -253,51 +253,51 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [1]
-Overfull \hbox (38.5998pt too wide) in paragraph at lines 114--116
+Overfull \hbox (38.5998pt too wide) in paragraph at lines 105--107
 []\OT1/cmr/m/n/12 The de-part-ments are ex-actly: Pro-duc-tion, Re-search, Ad min-is-tra-tion, Trade, Hu-man-Re-sources,
  []
 
 
-Overfull \hbox (10.31256pt too wide) in paragraph at lines 117--118
+Overfull \hbox (10.31256pt too wide) in paragraph at lines 108--109
 []\OT1/cmr/m/n/12 An administrative-employee is some-one who is em-ployed by an ad-min-is-tra-tion de-part-ment
  []
 
 [2] [3] [4]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 222.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 213.
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 222.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 213.
 
-Underfull \hbox (badness 10000) in paragraph at lines 236--237
+Underfull \hbox (badness 10000) in paragraph at lines 227--228
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 238--239
+Underfull \hbox (badness 10000) in paragraph at lines 229--230
 
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 240--241
+Underfull \hbox (badness 10000) in paragraph at lines 231--232
 
  []
 
 [6] (./hw3.aux) ) 
 Here is how much of TeX's memory you used:
- 2773 strings out of 492982
- 37627 string characters out of 6134895
+ 2775 strings out of 492982
+ 37651 string characters out of 6134895
  117051 words of memory out of 5000000
- 6303 multiletter control sequences out of 15000+600000
- 9737 words of font info for 35 fonts, out of 8000000 for 9000
+ 6304 multiletter control sequences out of 15000+600000
+ 10045 words of font info for 36 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,11n,43p,466b,290s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on hw3.pdf (7 pages, 116921 bytes).
+ 41i,11n,43p,489b,285s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on hw3.pdf (7 pages, 126571 bytes).
 PDF statistics:
- 60 PDF objects out of 1000 (max. 8388607)
- 42 compressed objects within 1 object stream
+ 64 PDF objects out of 1000 (max. 8388607)
+ 45 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
