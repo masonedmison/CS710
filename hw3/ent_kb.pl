@@ -1,4 +1,5 @@
 %Homework 3 Question 2A
+%definition and facts reference the letters in the hw3.text document
 
 %Definitions 
 
@@ -16,18 +17,17 @@ employee(X) :- is-employed-by(X, enterprise); is-employed-by(X, is-part-of(enter
 admin-employee(X) :-is-employed-by(X, department(Administration); is-employed-by(X, is-part-of(department(Administration) . 
 
 hitech-ent(X) :- has-part(X, research-department) .
-
-%revisit 
 indust-ent(X) :- has-part(X, prod-department) , employs(X,Y) , Y =< 5 .
 big-ent(X) :- enterprise(X) , employs(X,Y) , Y >= 80 . 
 fam-based-ent :- enterprise(X) , employs(X,Y) , Y =< 4 .
+
 manager(X) :- manages(X,_) . 
+boss(X) :- manages(X,O) , office(O) .
 
 
 %Facts (assertions) 
 big-ent(Alcatel) .
 
-%declare departments as types listed above!
 is-part-of(AD1, department(Administration)) .
 is-part-of(RD1, department(Research)) .
 is-part-of(HRD1, department(HumanResources)) .
